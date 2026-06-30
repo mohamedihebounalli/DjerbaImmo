@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VenteTerrainsRouteImport } from './routes/vente.terrains'
+import { Route as VenteMaisonsRouteImport } from './routes/vente.maisons'
+import { Route as LocationSaisonniereRouteImport } from './routes/location.saisonniere'
+import { Route as LocationAnnuelleRouteImport } from './routes/location.annuelle'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VenteTerrainsRoute = VenteTerrainsRouteImport.update({
+  id: '/vente/terrains',
+  path: '/vente/terrains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenteMaisonsRoute = VenteMaisonsRouteImport.update({
+  id: '/vente/maisons',
+  path: '/vente/maisons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationSaisonniereRoute = LocationSaisonniereRouteImport.update({
+  id: '/location/saisonniere',
+  path: '/location/saisonniere',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationAnnuelleRoute = LocationAnnuelleRouteImport.update({
+  id: '/location/annuelle',
+  path: '/location/annuelle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/location/annuelle'
+    | '/location/saisonniere'
+    | '/vente/maisons'
+    | '/vente/terrains'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/location/annuelle'
+    | '/location/saisonniere'
+    | '/vente/maisons'
+    | '/vente/terrains'
+  id:
+    | '__root__'
+    | '/'
+    | '/location/annuelle'
+    | '/location/saisonniere'
+    | '/vente/maisons'
+    | '/vente/terrains'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LocationAnnuelleRoute: typeof LocationAnnuelleRoute
+  LocationSaisonniereRoute: typeof LocationSaisonniereRoute
+  VenteMaisonsRoute: typeof VenteMaisonsRoute
+  VenteTerrainsRoute: typeof VenteTerrainsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +104,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vente/terrains': {
+      id: '/vente/terrains'
+      path: '/vente/terrains'
+      fullPath: '/vente/terrains'
+      preLoaderRoute: typeof VenteTerrainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vente/maisons': {
+      id: '/vente/maisons'
+      path: '/vente/maisons'
+      fullPath: '/vente/maisons'
+      preLoaderRoute: typeof VenteMaisonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/location/saisonniere': {
+      id: '/location/saisonniere'
+      path: '/location/saisonniere'
+      fullPath: '/location/saisonniere'
+      preLoaderRoute: typeof LocationSaisonniereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/location/annuelle': {
+      id: '/location/annuelle'
+      path: '/location/annuelle'
+      fullPath: '/location/annuelle'
+      preLoaderRoute: typeof LocationAnnuelleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LocationAnnuelleRoute: LocationAnnuelleRoute,
+  LocationSaisonniereRoute: LocationSaisonniereRoute,
+  VenteMaisonsRoute: VenteMaisonsRoute,
+  VenteTerrainsRoute: VenteTerrainsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
