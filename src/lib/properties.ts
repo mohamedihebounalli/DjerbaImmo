@@ -1,5 +1,3 @@
-
-
 export type PropertyType = "villa" | "apartment" | "menzel" | "studio" | "land";
 export type Transaction = "sale" | "annual" | "seasonal";
 
@@ -44,15 +42,27 @@ export const ZONES = [
 ];
 
 // helper to produce ISO dates within next N months
-function blockRange(startOffsetDays: number, count: number): string[] {
+function blockRange(
+  startDay: number,
+  startMonth: number,
+  startYear: number,
+  endDay: number,
+  endMonth: number,
+  endYear: number
+): string[] {
   const dates: string[] = [];
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  for (let i = 0; i < count; i++) {
-    const d = new Date(today);
-    d.setDate(d.getDate() + startOffsetDays + i);
-    dates.push(d.toISOString().slice(0, 10));
+  
+  const current = new Date(startYear, startMonth - 1, startDay);
+  const target = new Date(endYear, endMonth - 1, endDay);
+
+  current.setHours(0, 0, 0, 0);
+  target.setHours(0, 0, 0, 0);
+
+  while (current <= target) {
+    dates.push(current.toISOString().slice(0, 10));
+    current.setDate(current.getDate() + 1);
   }
+
   return dates;
 }
 
@@ -112,7 +122,10 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaAdnen/VillaAdnen7.webp",
           "/assets/VillaAdnen/VillaAdnen8.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
+    blockedDates: [
+          ...blockRange(6, 7, 2026, 10, 7, 2026),
+          ...blockRange(25, 7, 2026, 25, 7, 2026)
+    ],
 
   },
 {

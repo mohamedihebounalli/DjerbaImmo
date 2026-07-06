@@ -106,7 +106,7 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
 
       <div className="mt-4">
         <p className="mb-2 text-sm font-semibold text-primary">{t("detail.selectDates")}</p>
-        <div className="overflow-x-auto rounded-lg border border-border bg-background p-2 pointer-events-auto">
+        <div className="flex justify-center overflow-x-auto rounded-lg border border-border bg-background p-2 pointer-events-auto">
           <Calendar
             mode="range"
             selected={range}
@@ -115,6 +115,9 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
             numberOfMonths={1}
             weekStartsOn={1}
             className="pointer-events-auto"
+            modifiersClassNames={{
+              disabled: "line-through opacity-40 text-muted-foreground"
+            }}
           />
         </div>
         <p className="mt-2 text-xs text-muted-foreground">
