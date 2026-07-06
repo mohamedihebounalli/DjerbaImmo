@@ -2,16 +2,26 @@ import { Link } from "@tanstack/react-router";
 import { BedDouble, Bath, Maximize, MapPin } from "lucide-react";
 import type { Property } from "@/lib/properties";
 import { useI18n } from "@/lib/i18n";
+import { LoadingImage } from "@/components/LoadingImage";
 
 export function PropertyCard({ property }: { property: Property }) {
   const { t, lang } = useI18n();
 
   const priceLabel = (() => {
     if (property.transaction === "sale") {
+      if (!property.salePrice || property.salePrice === 0) {
+        return t("card.contactForPrice");
+      }
       return `${fmtPrice(property.salePrice, lang)}`;
     }
     if (property.transaction === "annual") {
+      if (!property.pricePerMonth || property.pricePerMonth === 0) {
+        return t("card.contactForPrice");
+      }
       return `${fmtPrice(property.pricePerMonth, lang)} ${t("card.perMonth")}`;
+    }
+    if (!property.pricePerNight || property.pricePerNight === 0) {
+      return t("card.contactForPrice");
     }
     return `${fmtPrice(property.pricePerNight, lang)} ${t("card.perNight")}`;
   })();
@@ -29,10 +39,9 @@ export function PropertyCard({ property }: { property: Property }) {
       className="group block overflow-hidden rounded-xl border border-border bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-        <img
+        <LoadingImage
           src={property.images[0]}
           alt={property.title}
-          loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3">
@@ -66,22 +75,29 @@ export function PropertyCard({ property }: { property: Property }) {
           {property.zone} · {t(`type.${property.type}`)}
         </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
-          {property.rooms != null && (
+          {property.rooms != null && property.rooms > 0 && (
             <Spec
               icon={<BedDouble className="h-3.5 w-3.5" />}
               value={`${property.rooms} ${t("card.rooms")}`}
             />
           )}
-          {property.baths != null && (
+          {property.baths != null && property.baths > 0 && (
             <Spec
               icon={<Bath className="h-3.5 w-3.5" />}
               value={`${property.baths} ${t("card.baths")}`}
             />
           )}
-          <Spec
-            icon={<Maximize className="h-3.5 w-3.5" />}
-            value={`${property.area} ${t("card.area")}`}
-          />
+          {property.type === "land" && property.landArea != null && property.landArea > 0 ? (
+            <Spec
+              icon={<Maximize className="h-3.5 w-3.5" />}
+              value={`${property.landArea} ${t("card.area")}`}
+            />
+          ) : property.area != null && property.area > 0 ? (
+            <Spec
+              icon={<Maximize className="h-3.5 w-3.5" />}
+              value={`${property.area} ${t("card.area")}`}
+            />
+          ) : null}
         </div>
       </div>
     </Link>

@@ -26,12 +26,19 @@ export function PropertyDetail({ property }: { property: Property }) {
     const fmt = (n: number) =>
       new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) +
       " TND";
-    if (property.transaction === "sale" && property.salePrice) return fmt(property.salePrice);
-    if (property.transaction === "annual" && property.pricePerMonth)
+    if (property.transaction === "sale") {
+      if (!property.salePrice || property.salePrice === 0) return t("card.contactForPrice");
+      return fmt(property.salePrice);
+    }
+    if (property.transaction === "annual") {
+      if (!property.pricePerMonth || property.pricePerMonth === 0) return t("card.contactForPrice");
       return `${fmt(property.pricePerMonth)} ${t("card.perMonth")}`;
-    if (property.transaction === "seasonal" && property.pricePerNight)
+    }
+    if (property.transaction === "seasonal") {
+      if (!property.pricePerNight || property.pricePerNight === 0) return t("card.contactForPrice");
       return `${fmt(property.pricePerNight)} ${t("card.perNight")}`;
-    return "—";
+    }
+    return t("card.contactForPrice");
   })();
 
   const breadcrumbParent =
@@ -117,32 +124,26 @@ export function PropertyDetail({ property }: { property: Property }) {
         <div className="space-y-10 lg:col-span-2">
           {/* Key facts */}
           <div className="grid grid-cols-2 gap-3 rounded-2xl border border-border bg-secondary/40 p-4 md:grid-cols-4">
-            {property.rooms != null && (
-              <Stat
-                icon={<BedDouble className="h-5 w-5" />}
-                label={t("search.rooms")}
-                value={String(property.rooms)}
-              />
-            )}
-            {property.baths != null && (
-              <Stat
-                icon={<Bath className="h-5 w-5" />}
-                label="Sdb."
-                value={String(property.baths)}
-              />
-            )}
+            <Stat
+              icon={<BedDouble className="h-5 w-5" />}
+              label={t("search.rooms")}
+              value={property.rooms && property.rooms > 0 ? String(property.rooms) : "—"}
+            />
+            <Stat
+              icon={<Bath className="h-5 w-5" />}
+              label="Sdb."
+              value={property.baths && property.baths > 0 ? String(property.baths) : "—"}
+            />
             <Stat
               icon={<Maximize className="h-5 w-5" />}
               label="Surface"
-              value={`${property.area} m²`}
+              value={property.area && property.area > 0 ? `${property.area} m²` : "—"}
             />
-            {property.landArea != null && (
-              <Stat
-                icon={<MapPin className="h-5 w-5" />}
-                label="Terrain"
-                value={`${property.landArea} m²`}
-              />
-            )}
+            <Stat
+              icon={<MapPin className="h-5 w-5" />}
+              label="Terrain"
+              value={property.landArea && property.landArea > 0 ? `${property.landArea} m²` : "—"}
+            />
             {property.type === "land" && property.constructible != null && (
               <Stat
                 icon={<CheckCircle2 className="h-5 w-5" />}

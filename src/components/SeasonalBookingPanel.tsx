@@ -34,10 +34,13 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
     ];
   }, [blockedSet]);
 
+  const hasPrice = property.pricePerNight != null && property.pricePerNight > 0;
+
   const nights =
     range?.from && range?.to ? Math.max(0, differenceInCalendarDays(range.to, range.from)) : 0;
 
-  const total = nights * (property.pricePerNight ?? 0);
+  // Only calculate total if a valid price exists
+  const total = hasPrice ? nights * (property.pricePerNight ?? 0) : 0;
 
   const fmtPrice = (n: number) =>
     new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
@@ -63,7 +66,7 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
         title: property.title,
         ref: property.ref,
         url: propertyUrl(property.slug),
-        priceLabel: `${fmtPrice(property.pricePerNight ?? 0)} / nuit`,
+        priceLabel: hasPrice ? `${fmtPrice(property.pricePerNight ?? 0)} / nuit` : t("card.contactForPrice"),
       },
       customer: { name, phone, email, adults, children },
       dates: {
@@ -71,7 +74,7 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
         checkOut: format(range.to, "dd/MM/yyyy"),
         nights,
       },
-      totalPrice: fmtPrice(total),
+      totalPrice: hasPrice ? fmtPrice(total) : t("card.contactForPrice"),
       requestType: "Demande de réservation séjour",
     });
   };
@@ -80,12 +83,20 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
     <aside className="rounded-2xl border border-border bg-card p-5 shadow-elegant md:p-6">
       <div className="flex items-baseline justify-between gap-3 border-b border-border pb-4">
         <div>
-          <div className="text-2xl font-bold text-primary">
-            {fmtPrice(property.pricePerNight ?? 0)}
-          </div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">
-            {t("card.perNight")}
-          </div>
+          {hasPrice ? (
+            <>
+              <div className="text-2xl font-bold text-primary">
+                {fmtPrice(property.pricePerNight ?? 0)}
+              </div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                {t("card.perNight")}
+              </div>
+            </>
+          ) : (
+            <div className="text-base font-bold text-primary py-2.5">
+              {t("card.contactForPrice")}
+            </div>
+          )}
         </div>
         <span className="inline-flex items-center gap-1 rounded-full bg-turquoise/15 px-2.5 py-1 text-[11px] font-semibold text-turquoise">
           <CalendarIcon className="h-3 w-3" />
@@ -116,10 +127,14 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
           <Row label={t("detail.checkin")} value={range?.from ? format(range.from, "dd/MM/yyyy") : "—"} />
           <Row label={t("detail.checkout")} value={range?.to ? format(range.to, "dd/MM/yyyy") : "—"} />
           <Row label={t("detail.nights")} value={String(nights)} />
-          <div className="mt-2 flex items-baseline justify-between border-t border-border pt-2">
-            <span className="text-sm font-semibold text-primary">{t("detail.total")}</span>
-            <span className="font-display text-xl font-bold text-gold">{fmtPrice(total)}</span>
-          </div>
+          
+          {/* Conditionally render the total price line row only if a valid price exists */}
+          {hasPrice && (
+            <div className="mt-2 flex items-baseline justify-between border-t border-border pt-2">
+              <span className="text-sm font-semibold text-primary">{t("detail.total")}</span>
+              <span className="font-display text-xl font-bold text-gold">{fmtPrice(total)}</span>
+            </div>
+          )}
         </div>
       )}
 

@@ -181,3 +181,16 @@
 @utility shadow-elegant {
   box-shadow: var(--shadow-elegant);
 }
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}

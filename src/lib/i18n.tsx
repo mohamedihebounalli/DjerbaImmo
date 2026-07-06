@@ -57,6 +57,7 @@ const fr: Dict = {
   "card.perNight": "/ nuit",
   "card.new": "Nouveau",
   "card.view": "Voir le bien",
+  "card.contactForPrice": "Nous contacter pour le prix",
 
   "home.categories.title": "Nos services",
   "home.categories.sale": "Achat de maisons",
@@ -190,6 +191,7 @@ const en: Dict = {
   "card.perNight": "/ night",
   "card.new": "New",
   "card.view": "View property",
+  "card.contactForPrice": "Contact us for price",
 
   "home.categories.title": "Our services",
   "home.categories.sale": "Buy a home",
@@ -322,6 +324,7 @@ const ar: Dict = {
   "card.perNight": "/ ليلة",
   "card.new": "جديد",
   "card.view": "عرض العقار",
+  "card.contactForPrice": "اتصل بنا لمعرفة السعر",
 
   "home.categories.title": "خدماتنا",
   "home.categories.sale": "شراء منزل",
