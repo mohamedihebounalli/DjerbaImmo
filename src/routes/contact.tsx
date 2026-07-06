@@ -17,14 +17,6 @@ import { useI18n } from "@/lib/i18n";
 import { openWhatsApp, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Immo Djerba" },
-      { name: "description", content: "Contactez Immo Djerba — agence immobilière à Djerba." },
-      { property: "og:title", content: "Contact — Immo Djerba" },
-      { property: "og:description", content: "Contactez-nous via WhatsApp pour toute demande." },
-    ],
-  }),
   component: ContactPage,
 });
 
