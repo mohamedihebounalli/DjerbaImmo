@@ -5,14 +5,6 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/a-propos")({
-  head: () => ({
-    meta: [
-      { title: "À propos — Immo Djerba" },
-      { name: "description", content: "Immo Djerba, agence spécialisée à Djerba : vente, achat et location." },
-      { property: "og:title", content: "À propos — Immo Djerba" },
-      { property: "og:description", content: "Notre mission et nos engagements à Djerba." },
-    ],
-  }),
   component: AboutPage,
 });
 

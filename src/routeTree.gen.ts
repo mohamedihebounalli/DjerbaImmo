@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,11 +21,6 @@ import { Route as VenteMaisonsSlugRouteImport } from './routes/vente.maisons.$sl
 import { Route as LocationSaisonniereSlugRouteImport } from './routes/location.saisonniere.$slug'
 import { Route as LocationAnnuelleSlugRouteImport } from './routes/location.annuelle.$slug'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -87,7 +81,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
   '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
   '/vente/maisons': typeof VenteMaisonsRouteWithChildren
@@ -101,7 +94,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
   '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
   '/vente/maisons': typeof VenteMaisonsRouteWithChildren
@@ -116,7 +108,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
   '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
   '/vente/maisons': typeof VenteMaisonsRouteWithChildren
@@ -132,7 +123,6 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
-    | '/sitemap.xml'
     | '/location/annuelle'
     | '/location/saisonniere'
     | '/vente/maisons'
@@ -146,7 +136,6 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
-    | '/sitemap.xml'
     | '/location/annuelle'
     | '/location/saisonniere'
     | '/vente/maisons'
@@ -160,7 +149,6 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
-    | '/sitemap.xml'
     | '/location/annuelle'
     | '/location/saisonniere'
     | '/vente/maisons'
@@ -175,7 +163,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   ContactRoute: typeof ContactRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   LocationAnnuelleRoute: typeof LocationAnnuelleRouteWithChildren
   LocationSaisonniereRoute: typeof LocationSaisonniereRouteWithChildren
   VenteMaisonsRoute: typeof VenteMaisonsRouteWithChildren
@@ -184,13 +171,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -321,7 +301,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   ContactRoute: ContactRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   LocationAnnuelleRoute: LocationAnnuelleRouteWithChildren,
   LocationSaisonniereRoute: LocationSaisonniereRouteWithChildren,
   VenteMaisonsRoute: VenteMaisonsRouteWithChildren,

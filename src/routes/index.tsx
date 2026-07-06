@@ -11,21 +11,6 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Immo Djerba — Villas, menzels, appartements et terrains" },
-      {
-        name: "description",
-        content:
-          "Découvrez votre havre de paix à Djerba. Vente, achat et location de biens d'exception sur toute l'île.",
-      },
-      { property: "og:title", content: "Immo Djerba — Vente, Achat, Location" },
-      {
-        property: "og:description",
-        content: "Vente, achat et location de villas, menzels, appartements et terrains à Djerba.",
-      },
-    ],
-  }),
   component: HomePage,
 });
 

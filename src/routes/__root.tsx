@@ -4,10 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
 
 import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/600.css";
@@ -20,7 +18,6 @@ import "@fontsource/cairo/400.css";
 import "@fontsource/cairo/600.css";
 import "@fontsource/cairo/700.css";
 
-import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -88,49 +85,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Immo Djerba — Vente, Achat, Location à Djerba" },
-      {
-        name: "description",
-        content:
-          "Agence immobilière spécialisée à Djerba : vente, achat et location de villas, menzels, appartements et terrains.",
-      },
-      { name: "author", content: "Immo Djerba" },
-      { property: "og:title", content: "Immo Djerba — Vente, Achat, Location" },
-      {
-        property: "og:description",
-        content:
-          "Spécialiste de l'immobilier à Djerba : villas, menzels, appartements et terrains.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="fr">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
