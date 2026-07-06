@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -112,7 +112,7 @@ function ContactPage() {
                 </a>
               </InfoRow>
               <InfoRow icon={<Mail className="h-4 w-4" />} label={t("contact.email")}>
-                contact@immo-djerba.com
+                immodjerba.contact@gmail.com
               </InfoRow>
               <InfoRow icon={<MapPin className="h-4 w-4" />} label={t("contact.address")}>
                 Île de Djerba, Tunisie
@@ -123,11 +123,12 @@ function ContactPage() {
                 {t("contact.follow")}
               </div>
               <div className="mt-2 flex gap-2">
-                <Social href="https://facebook.com" label="Facebook"><Facebook className="h-4 w-4" /></Social>
-                <Social href="https://instagram.com" label="Instagram"><Instagram className="h-4 w-4" /></Social>
-                <Social href="https://tiktok.com" label="TikTok">
+                <Social href="https://www.facebook.com/immodj" label="Facebook"><Facebook className="h-4 w-4" /></Social>
+                <Social href="https://www.instagram.com/immodjerba/" label="Instagram"><Instagram className="h-4 w-4" /></Social>
+                <Social href="https://www.tiktok.com/@immo.djerba/" label="TikTok">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M21 8.5a7.5 7.5 0 0 1-5-1.9V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2 h3a4.5 4.5 0 0 0 5 4.5V8.5z" /></svg>
                 </Social>
+                <Social href="https://www.youtube.com/@immodjerba" label="YouTube"><Youtube className="h-4 w-4" /></Social>
               </div>
             </div>
           </div>

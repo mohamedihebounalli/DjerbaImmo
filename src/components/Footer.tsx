@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
-import { Facebook, Instagram, Phone, MapPin, Mail } from "lucide-react";
+import { Facebook, Instagram, Phone, MapPin, Mail, Youtube } from "lucide-react";
 
 const TIKTOK = (
   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden>
@@ -55,8 +55,8 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 h-4 w-4 text-gold" />
-              <a href="mailto:contact@immo-djerba.com" className="hover:text-gold">
-                contact@immo-djerba.com
+              <a href="mailto:immodjerba.contact@gmail.com" className="hover:text-gold">
+                immodjerba.contact@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-2">
@@ -71,9 +71,10 @@ export function Footer() {
             {t("contact.follow")}
           </h4>
           <div className="mt-4 flex gap-3">
-            <SocialLink href="https://facebook.com" label="Facebook"><Facebook className="h-4 w-4" /></SocialLink>
-            <SocialLink href="https://instagram.com" label="Instagram"><Instagram className="h-4 w-4" /></SocialLink>
-            <SocialLink href="https://tiktok.com" label="TikTok">{TIKTOK}</SocialLink>
+            <SocialLink href="https://www.facebook.com/immodj" label="Facebook"><Facebook className="h-4 w-4" /></SocialLink>
+            <SocialLink href="https://www.instagram.com/immodjerba/" label="Instagram"><Instagram className="h-4 w-4" /></SocialLink>
+            <SocialLink href="https://www.tiktok.com/@immo.djerba/" label="TikTok">{TIKTOK}</SocialLink>
+            <SocialLink href="https://www.youtube.com/@immodjerba" label="YouTube"><Youtube className="h-4 w-4" /></SocialLink>
           </div>
         </div>
       </div>
