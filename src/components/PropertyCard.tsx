@@ -67,12 +67,21 @@ export function PropertyCard({ property }: { property: Property }) {
         </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
           {property.rooms != null && (
-            <Spec icon={<BedDouble className="h-3.5 w-3.5" />} value={`${property.rooms} ${t("card.rooms")}`} />
+            <Spec
+              icon={<BedDouble className="h-3.5 w-3.5" />}
+              value={`${property.rooms} ${t("card.rooms")}`}
+            />
           )}
           {property.baths != null && (
-            <Spec icon={<Bath className="h-3.5 w-3.5" />} value={`${property.baths} ${t("card.baths")}`} />
+            <Spec
+              icon={<Bath className="h-3.5 w-3.5" />}
+              value={`${property.baths} ${t("card.baths")}`}
+            />
           )}
-          <Spec icon={<Maximize className="h-3.5 w-3.5" />} value={`${property.area} ${t("card.area")}`} />
+          <Spec
+            icon={<Maximize className="h-3.5 w-3.5" />}
+            value={`${property.area} ${t("card.area")}`}
+          />
         </div>
       </div>
     </Link>
@@ -91,7 +100,10 @@ function Spec({ icon, value }: { icon: React.ReactNode; value: string }) {
 function fmtPrice(n: number | undefined, lang: string): string {
   if (n == null) return "—";
   try {
-    return new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
+    return (
+      new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) +
+      " TND"
+    );
   } catch {
     return n + " TND";
   }

@@ -115,7 +115,7 @@ function ContactPage() {
                 contact@immo-djerba.com
               </InfoRow>
               <InfoRow icon={<MapPin className="h-4 w-4" />} label={t("contact.address")}>
-                Houmt Souk, Djerba, Tunisie
+                Île de Djerba, Tunisie
               </InfoRow>
             </ul>
             <div className="mt-5 border-t border-border pt-4">
@@ -126,7 +126,7 @@ function ContactPage() {
                 <Social href="https://facebook.com" label="Facebook"><Facebook className="h-4 w-4" /></Social>
                 <Social href="https://instagram.com" label="Instagram"><Instagram className="h-4 w-4" /></Social>
                 <Social href="https://tiktok.com" label="TikTok">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M21 8.5a7.5 7.5 0 0 1-5-1.9V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2h3a4.5 4.5 0 0 0 5 4.5V8.5z" /></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M21 8.5a7.5 7.5 0 0 1-5-1.9V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2 h3a4.5 4.5 0 0 0 5 4.5V8.5z" /></svg>
                 </Social>
               </div>
             </div>
@@ -135,7 +135,7 @@ function ContactPage() {
           <div className="overflow-hidden rounded-2xl border border-border shadow-card">
             <iframe
               title="Carte Djerba"
-              src="https://www.google.com/maps?q=Houmt+Souk,+Djerba,+Tunisie&output=embed"
+              src="https://www.google.com/maps?q=Djerba,+Tunisie&output=embed"
               width="100%"
               height="260"
               loading="lazy"

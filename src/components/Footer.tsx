@@ -61,7 +61,7 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-gold" />
-              <span>Houmt Souk, Djerba, Tunisie</span>
+              <span>Île de Djerba, Tunisie</span>
             </li>
           </ul>
         </div>

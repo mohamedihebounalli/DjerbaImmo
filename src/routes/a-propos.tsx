@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Handshake, MapPin } from "lucide-react";
-import aboutImg from "@/assets/about-menzel.jpg";
+import aboutImg from "@/assets/about-menzel.webp";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 

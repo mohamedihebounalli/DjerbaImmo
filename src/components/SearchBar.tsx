@@ -78,24 +78,10 @@ export function SearchBar({
       className={
         "grid gap-3 rounded-2xl border border-border bg-card/95 p-4 shadow-elegant backdrop-blur md:p-5 " +
         (compact
-          ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
+          ? "grid-cols-2 md:grid-cols-4"
           : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4")
       }
     >
-      <Field label={t("search.type")}>
-        <Select value={value.type ?? "all"} onValueChange={(v) => update({ type: v as Filters["type"] })}>
-          <SelectTrigger><SelectValue /></SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">{t("search.all")}</SelectItem>
-            <SelectItem value="villa">{t("type.villa")}</SelectItem>
-            <SelectItem value="apartment">{t("type.apartment")}</SelectItem>
-            <SelectItem value="menzel">{t("type.menzel")}</SelectItem>
-            <SelectItem value="studio">{t("type.studio")}</SelectItem>
-            <SelectItem value="land">{t("type.land")}</SelectItem>
-          </SelectContent>
-        </Select>
-      </Field>
-
       {!hideTransaction && (
         <Field label={t("search.transaction")}>
           <Select
@@ -140,16 +126,6 @@ export function SearchBar({
         </Select>
       </Field>
 
-      <Field label={t("search.priceMin")}>
-        <Input
-          type="number"
-          inputMode="numeric"
-          min={0}
-          value={value.priceMin ?? ""}
-          onChange={(e) => update({ priceMin: e.target.value === "" ? "" : Number(e.target.value) })}
-          placeholder="0"
-        />
-      </Field>
       <Field label={t("search.priceMax")}>
         <Input
           type="number"

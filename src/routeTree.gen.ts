@@ -14,12 +14,12 @@ import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as VenteTerrainsRouteImport } from './routes/vente.terrains'
 import { Route as VenteMaisonsRouteImport } from './routes/vente.maisons'
+import { Route as VenteTerrainIdRouteImport } from './routes/vente-terrain.$id'
+import { Route as VenteMaisonIdRouteImport } from './routes/vente-maison.$id'
 import { Route as LocationSaisonniereRouteImport } from './routes/location.saisonniere'
 import { Route as LocationAnnuelleRouteImport } from './routes/location.annuelle'
-import { Route as VenteTerrainsSlugRouteImport } from './routes/vente.terrains.$slug'
-import { Route as VenteMaisonsSlugRouteImport } from './routes/vente.maisons.$slug'
-import { Route as LocationSaisonniereSlugRouteImport } from './routes/location.saisonniere.$slug'
-import { Route as LocationAnnuelleSlugRouteImport } from './routes/location.annuelle.$slug'
+import { Route as LocationSaisonniereIdRouteImport } from './routes/location-saisonniere.$id'
+import { Route as LocationAnnuelleIdRouteImport } from './routes/location-annuelle.$id'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -46,6 +46,16 @@ const VenteMaisonsRoute = VenteMaisonsRouteImport.update({
   path: '/vente/maisons',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VenteTerrainIdRoute = VenteTerrainIdRouteImport.update({
+  id: '/vente-terrain/$id',
+  path: '/vente-terrain/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenteMaisonIdRoute = VenteMaisonIdRouteImport.update({
+  id: '/vente-maison/$id',
+  path: '/vente-maison/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationSaisonniereRoute = LocationSaisonniereRouteImport.update({
   id: '/location/saisonniere',
   path: '/location/saisonniere',
@@ -56,66 +66,56 @@ const LocationAnnuelleRoute = LocationAnnuelleRouteImport.update({
   path: '/location/annuelle',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VenteTerrainsSlugRoute = VenteTerrainsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => VenteTerrainsRoute,
+const LocationSaisonniereIdRoute = LocationSaisonniereIdRouteImport.update({
+  id: '/location-saisonniere/$id',
+  path: '/location-saisonniere/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const VenteMaisonsSlugRoute = VenteMaisonsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => VenteMaisonsRoute,
-} as any)
-const LocationSaisonniereSlugRoute = LocationSaisonniereSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => LocationSaisonniereRoute,
-} as any)
-const LocationAnnuelleSlugRoute = LocationAnnuelleSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => LocationAnnuelleRoute,
+const LocationAnnuelleIdRoute = LocationAnnuelleIdRouteImport.update({
+  id: '/location-annuelle/$id',
+  path: '/location-annuelle/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
-  '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
-  '/vente/maisons': typeof VenteMaisonsRouteWithChildren
-  '/vente/terrains': typeof VenteTerrainsRouteWithChildren
-  '/location/annuelle/$slug': typeof LocationAnnuelleSlugRoute
-  '/location/saisonniere/$slug': typeof LocationSaisonniereSlugRoute
-  '/vente/maisons/$slug': typeof VenteMaisonsSlugRoute
-  '/vente/terrains/$slug': typeof VenteTerrainsSlugRoute
+  '/location-annuelle/$id': typeof LocationAnnuelleIdRoute
+  '/location-saisonniere/$id': typeof LocationSaisonniereIdRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente-maison/$id': typeof VenteMaisonIdRoute
+  '/vente-terrain/$id': typeof VenteTerrainIdRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
-  '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
-  '/vente/maisons': typeof VenteMaisonsRouteWithChildren
-  '/vente/terrains': typeof VenteTerrainsRouteWithChildren
-  '/location/annuelle/$slug': typeof LocationAnnuelleSlugRoute
-  '/location/saisonniere/$slug': typeof LocationSaisonniereSlugRoute
-  '/vente/maisons/$slug': typeof VenteMaisonsSlugRoute
-  '/vente/terrains/$slug': typeof VenteTerrainsSlugRoute
+  '/location-annuelle/$id': typeof LocationAnnuelleIdRoute
+  '/location-saisonniere/$id': typeof LocationSaisonniereIdRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente-maison/$id': typeof VenteMaisonIdRoute
+  '/vente-terrain/$id': typeof VenteTerrainIdRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
-  '/location/annuelle': typeof LocationAnnuelleRouteWithChildren
-  '/location/saisonniere': typeof LocationSaisonniereRouteWithChildren
-  '/vente/maisons': typeof VenteMaisonsRouteWithChildren
-  '/vente/terrains': typeof VenteTerrainsRouteWithChildren
-  '/location/annuelle/$slug': typeof LocationAnnuelleSlugRoute
-  '/location/saisonniere/$slug': typeof LocationSaisonniereSlugRoute
-  '/vente/maisons/$slug': typeof VenteMaisonsSlugRoute
-  '/vente/terrains/$slug': typeof VenteTerrainsSlugRoute
+  '/location-annuelle/$id': typeof LocationAnnuelleIdRoute
+  '/location-saisonniere/$id': typeof LocationSaisonniereIdRoute
+  '/location/annuelle': typeof LocationAnnuelleRoute
+  '/location/saisonniere': typeof LocationSaisonniereRoute
+  '/vente-maison/$id': typeof VenteMaisonIdRoute
+  '/vente-terrain/$id': typeof VenteTerrainIdRoute
+  '/vente/maisons': typeof VenteMaisonsRoute
+  '/vente/terrains': typeof VenteTerrainsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -123,50 +123,54 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/location-annuelle/$id'
+    | '/location-saisonniere/$id'
     | '/location/annuelle'
     | '/location/saisonniere'
+    | '/vente-maison/$id'
+    | '/vente-terrain/$id'
     | '/vente/maisons'
     | '/vente/terrains'
-    | '/location/annuelle/$slug'
-    | '/location/saisonniere/$slug'
-    | '/vente/maisons/$slug'
-    | '/vente/terrains/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/location-annuelle/$id'
+    | '/location-saisonniere/$id'
     | '/location/annuelle'
     | '/location/saisonniere'
+    | '/vente-maison/$id'
+    | '/vente-terrain/$id'
     | '/vente/maisons'
     | '/vente/terrains'
-    | '/location/annuelle/$slug'
-    | '/location/saisonniere/$slug'
-    | '/vente/maisons/$slug'
-    | '/vente/terrains/$slug'
   id:
     | '__root__'
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/location-annuelle/$id'
+    | '/location-saisonniere/$id'
     | '/location/annuelle'
     | '/location/saisonniere'
+    | '/vente-maison/$id'
+    | '/vente-terrain/$id'
     | '/vente/maisons'
     | '/vente/terrains'
-    | '/location/annuelle/$slug'
-    | '/location/saisonniere/$slug'
-    | '/vente/maisons/$slug'
-    | '/vente/terrains/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   ContactRoute: typeof ContactRoute
-  LocationAnnuelleRoute: typeof LocationAnnuelleRouteWithChildren
-  LocationSaisonniereRoute: typeof LocationSaisonniereRouteWithChildren
-  VenteMaisonsRoute: typeof VenteMaisonsRouteWithChildren
-  VenteTerrainsRoute: typeof VenteTerrainsRouteWithChildren
+  LocationAnnuelleIdRoute: typeof LocationAnnuelleIdRoute
+  LocationSaisonniereIdRoute: typeof LocationSaisonniereIdRoute
+  LocationAnnuelleRoute: typeof LocationAnnuelleRoute
+  LocationSaisonniereRoute: typeof LocationSaisonniereRoute
+  VenteMaisonIdRoute: typeof VenteMaisonIdRoute
+  VenteTerrainIdRoute: typeof VenteTerrainIdRoute
+  VenteMaisonsRoute: typeof VenteMaisonsRoute
+  VenteTerrainsRoute: typeof VenteTerrainsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -206,6 +210,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VenteMaisonsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vente-terrain/$id': {
+      id: '/vente-terrain/$id'
+      path: '/vente-terrain/$id'
+      fullPath: '/vente-terrain/$id'
+      preLoaderRoute: typeof VenteTerrainIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vente-maison/$id': {
+      id: '/vente-maison/$id'
+      path: '/vente-maison/$id'
+      fullPath: '/vente-maison/$id'
+      preLoaderRoute: typeof VenteMaisonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/location/saisonniere': {
       id: '/location/saisonniere'
       path: '/location/saisonniere'
@@ -220,91 +238,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationAnnuelleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/vente/terrains/$slug': {
-      id: '/vente/terrains/$slug'
-      path: '/$slug'
-      fullPath: '/vente/terrains/$slug'
-      preLoaderRoute: typeof VenteTerrainsSlugRouteImport
-      parentRoute: typeof VenteTerrainsRoute
+    '/location-saisonniere/$id': {
+      id: '/location-saisonniere/$id'
+      path: '/location-saisonniere/$id'
+      fullPath: '/location-saisonniere/$id'
+      preLoaderRoute: typeof LocationSaisonniereIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/vente/maisons/$slug': {
-      id: '/vente/maisons/$slug'
-      path: '/$slug'
-      fullPath: '/vente/maisons/$slug'
-      preLoaderRoute: typeof VenteMaisonsSlugRouteImport
-      parentRoute: typeof VenteMaisonsRoute
-    }
-    '/location/saisonniere/$slug': {
-      id: '/location/saisonniere/$slug'
-      path: '/$slug'
-      fullPath: '/location/saisonniere/$slug'
-      preLoaderRoute: typeof LocationSaisonniereSlugRouteImport
-      parentRoute: typeof LocationSaisonniereRoute
-    }
-    '/location/annuelle/$slug': {
-      id: '/location/annuelle/$slug'
-      path: '/$slug'
-      fullPath: '/location/annuelle/$slug'
-      preLoaderRoute: typeof LocationAnnuelleSlugRouteImport
-      parentRoute: typeof LocationAnnuelleRoute
+    '/location-annuelle/$id': {
+      id: '/location-annuelle/$id'
+      path: '/location-annuelle/$id'
+      fullPath: '/location-annuelle/$id'
+      preLoaderRoute: typeof LocationAnnuelleIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface LocationAnnuelleRouteChildren {
-  LocationAnnuelleSlugRoute: typeof LocationAnnuelleSlugRoute
-}
-
-const LocationAnnuelleRouteChildren: LocationAnnuelleRouteChildren = {
-  LocationAnnuelleSlugRoute: LocationAnnuelleSlugRoute,
-}
-
-const LocationAnnuelleRouteWithChildren =
-  LocationAnnuelleRoute._addFileChildren(LocationAnnuelleRouteChildren)
-
-interface LocationSaisonniereRouteChildren {
-  LocationSaisonniereSlugRoute: typeof LocationSaisonniereSlugRoute
-}
-
-const LocationSaisonniereRouteChildren: LocationSaisonniereRouteChildren = {
-  LocationSaisonniereSlugRoute: LocationSaisonniereSlugRoute,
-}
-
-const LocationSaisonniereRouteWithChildren =
-  LocationSaisonniereRoute._addFileChildren(LocationSaisonniereRouteChildren)
-
-interface VenteMaisonsRouteChildren {
-  VenteMaisonsSlugRoute: typeof VenteMaisonsSlugRoute
-}
-
-const VenteMaisonsRouteChildren: VenteMaisonsRouteChildren = {
-  VenteMaisonsSlugRoute: VenteMaisonsSlugRoute,
-}
-
-const VenteMaisonsRouteWithChildren = VenteMaisonsRoute._addFileChildren(
-  VenteMaisonsRouteChildren,
-)
-
-interface VenteTerrainsRouteChildren {
-  VenteTerrainsSlugRoute: typeof VenteTerrainsSlugRoute
-}
-
-const VenteTerrainsRouteChildren: VenteTerrainsRouteChildren = {
-  VenteTerrainsSlugRoute: VenteTerrainsSlugRoute,
-}
-
-const VenteTerrainsRouteWithChildren = VenteTerrainsRoute._addFileChildren(
-  VenteTerrainsRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   ContactRoute: ContactRoute,
-  LocationAnnuelleRoute: LocationAnnuelleRouteWithChildren,
-  LocationSaisonniereRoute: LocationSaisonniereRouteWithChildren,
-  VenteMaisonsRoute: VenteMaisonsRouteWithChildren,
-  VenteTerrainsRoute: VenteTerrainsRouteWithChildren,
+  LocationAnnuelleIdRoute: LocationAnnuelleIdRoute,
+  LocationSaisonniereIdRoute: LocationSaisonniereIdRoute,
+  LocationAnnuelleRoute: LocationAnnuelleRoute,
+  LocationSaisonniereRoute: LocationSaisonniereRoute,
+  VenteMaisonIdRoute: VenteMaisonIdRoute,
+  VenteTerrainIdRoute: VenteTerrainIdRoute,
+  VenteMaisonsRoute: VenteMaisonsRoute,
+  VenteTerrainsRoute: VenteTerrainsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

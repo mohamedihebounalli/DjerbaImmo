@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { DateRange, DayPicker } from "react-day-picker";
+import { DateRange } from "react-day-picker";
 import { addDays, differenceInCalendarDays, format } from "date-fns";
 import { Calendar as CalendarIcon, MessageCircle } from "lucide-react";
 
@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useI18n } from "@/lib/i18n";
 import { openWhatsApp, propertyUrl } from "@/lib/whatsapp";
 import type { Property } from "@/lib/properties";
+import { Calendar } from "@/components/ui/calendar";
 
 export function SeasonalBookingPanel({ property }: { property: Property }) {
   const { t, lang } = useI18n();
@@ -24,13 +25,14 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
     [property.blockedDates],
   );
 
-  const disabled = useMemo(
-    () => [
-      { before: new Date() },
+  const disabled = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return [
+      { before: today },
       (date: Date) => blockedSet.has(date.toISOString().slice(0, 10)),
-    ],
-    [blockedSet],
-  );
+    ];
+  }, [blockedSet]);
 
   const nights =
     range?.from && range?.to ? Math.max(0, differenceInCalendarDays(range.to, range.from)) : 0;
@@ -94,7 +96,7 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
       <div className="mt-4">
         <p className="mb-2 text-sm font-semibold text-primary">{t("detail.selectDates")}</p>
         <div className="overflow-x-auto rounded-lg border border-border bg-background p-2 pointer-events-auto">
-          <DayPicker
+          <Calendar
             mode="range"
             selected={range}
             onSelect={setRange}

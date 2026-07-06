@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, KeyRound, Sparkles, TreePalm } from "lucide-react";
 
-import heroImg from "@/assets/hero-djerba.jpg";
-import aboutImg from "@/assets/about-menzel.jpg";
+import heroImg from "@/assets/hero-djerba.webp";
+import aboutImg from "@/assets/about-menzel.webp";
 
 import { useI18n } from "@/lib/i18n";
 import { SearchBar, applyFilters, useDefaultFilters } from "@/components/SearchBar";

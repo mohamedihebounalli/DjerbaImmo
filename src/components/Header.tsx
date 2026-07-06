@@ -4,20 +4,20 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
+import djerbaImmoLogo from "@/assets/DjerbaImmo.png";
 
 export function Header() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
 
-  const link =
-    "text-sm font-medium text-primary/85 hover:text-gold transition-colors";
+  const link = "text-sm font-medium text-primary/85 hover:text-gold transition-colors";
   const activeProps = { className: "text-gold" };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="container mx-auto flex h-18 items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <Link to="/" className="flex items-center gap-3" aria-label="Immo Djerba">
-          <Logo />
+        <Link to="/" className="flex items-center gap-1" aria-label="Immo Djerba">
+          <img src={djerbaImmoLogo} alt="Djerba Immo Logo" className="h-12 w-auto object-contain" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-xl font-bold tracking-tight text-primary">
               IMMO <span className="text-gold">DJERBA</span>
@@ -71,16 +71,34 @@ export function Header() {
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="container mx-auto flex flex-col gap-1 px-4 py-3">
-            <MobileLink to="/" onClick={() => setOpen(false)}>{t("nav.home")}</MobileLink>
-            <div className="mt-2 px-3 text-[11px] uppercase tracking-wider text-muted-foreground">{t("nav.sale")}</div>
-            <MobileLink to="/vente/maisons" onClick={() => setOpen(false)}>{t("nav.sale.houses")}</MobileLink>
-            <MobileLink to="/vente/terrains" onClick={() => setOpen(false)}>{t("nav.sale.land")}</MobileLink>
-            <div className="mt-2 px-3 text-[11px] uppercase tracking-wider text-muted-foreground">{t("nav.rent")}</div>
-            <MobileLink to="/location/saisonniere" onClick={() => setOpen(false)}>{t("nav.rent.seasonal")}</MobileLink>
-            <MobileLink to="/location/annuelle" onClick={() => setOpen(false)}>{t("nav.rent.annual")}</MobileLink>
+            <MobileLink to="/" onClick={() => setOpen(false)}>
+              {t("nav.home")}
+            </MobileLink>
+            <div className="mt-2 px-3 text-[11px] uppercase tracking-wider text-muted-foreground">
+              {t("nav.sale")}
+            </div>
+            <MobileLink to="/vente/maisons" onClick={() => setOpen(false)}>
+              {t("nav.sale.houses")}
+            </MobileLink>
+            <MobileLink to="/vente/terrains" onClick={() => setOpen(false)}>
+              {t("nav.sale.land")}
+            </MobileLink>
+            <div className="mt-2 px-3 text-[11px] uppercase tracking-wider text-muted-foreground">
+              {t("nav.rent")}
+            </div>
+            <MobileLink to="/location/saisonniere" onClick={() => setOpen(false)}>
+              {t("nav.rent.seasonal")}
+            </MobileLink>
+            <MobileLink to="/location/annuelle" onClick={() => setOpen(false)}>
+              {t("nav.rent.annual")}
+            </MobileLink>
             <div className="my-2 h-px bg-border" />
-            <MobileLink to="/a-propos" onClick={() => setOpen(false)}>{t("nav.about")}</MobileLink>
-            <MobileLink to="/contact" onClick={() => setOpen(false)}>{t("nav.contact")}</MobileLink>
+            <MobileLink to="/a-propos" onClick={() => setOpen(false)}>
+              {t("nav.about")}
+            </MobileLink>
+            <MobileLink to="/contact" onClick={() => setOpen(false)}>
+              {t("nav.contact")}
+            </MobileLink>
           </nav>
         </div>
       )}
@@ -88,7 +106,15 @@ export function Header() {
   );
 }
 
-function MobileLink({ to, children, onClick }: { to: string; children: React.ReactNode; onClick: () => void }) {
+function MobileLink({
+  to,
+  children,
+  onClick,
+}: {
+  to: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
   return (
     <Link
       to={to}
@@ -101,13 +127,7 @@ function MobileLink({ to, children, onClick }: { to: string; children: React.Rea
   );
 }
 
-function Dropdown({
-  label,
-  items,
-}: {
-  label: string;
-  items: { to: string; label: string }[];
-}) {
+function Dropdown({ label, items }: { label: string; items: { to: string; label: string }[] }) {
   return (
     <div className="group relative">
       <button
@@ -140,7 +160,16 @@ function Dropdown({
 function Logo() {
   return (
     <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-gradient-sea text-white shadow-card">
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
         <path d="M3 12a9 9 0 0 1 18 0" />
         <path d="M8 21V11l4-4 4 4v10" />
         <circle cx="12" cy="7.5" r="0.6" fill="currentColor" />
