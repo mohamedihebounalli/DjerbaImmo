@@ -1,9 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, KeyRound, Sparkles, TreePalm } from "lucide-react";
-
-import heroImg from "@/assets/hero-djerba.webp";
-import aboutImg from "@/assets/about-menzel.webp";
-
 import { useI18n } from "@/lib/i18n";
 import { SearchBar, applyFilters, useDefaultFilters } from "@/components/SearchBar";
 import { PROPERTIES } from "@/lib/properties";
@@ -25,7 +21,7 @@ function HomePage() {
       <section className="relative">
         <div className="relative h-[78vh] min-h-[560px] w-full overflow-hidden">
           <img
-            src={heroImg}
+            src="/assets/hero-djerba.webp"
             alt="Villa traditionnelle à Djerba au coucher du soleil"
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -52,7 +48,6 @@ function HomePage() {
             value={filters}
             onChange={setFilters}
             onSubmit={() => {
-              // scroll to results
               document.getElementById("results")?.scrollIntoView({ behavior: "smooth" });
             }}
           />
@@ -111,7 +106,12 @@ function HomePage() {
       <section className="container mx-auto grid items-center gap-10 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28">
         <div className="relative">
           <div className="aspect-[4/5] overflow-hidden rounded-3xl shadow-elegant">
-            <img src={aboutImg} alt="Patio traditionnel d'un menzel à Djerba" className="h-full w-full object-cover" loading="lazy" />
+            <img 
+              src="/assets/about-menzel.webp" 
+              alt="Patio traditionnel d'un menzel à Djerba" 
+              className="h-full w-full object-cover" 
+              loading="lazy" 
+            />
           </div>
           <div className="absolute -bottom-6 -end-6 hidden h-32 w-32 rounded-full bg-gold/90 shadow-elegant md:block" />
         </div>

@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
-import djerbaImmoLogo from "@/assets/DjerbaImmo.png";
 
 export function Header() {
   const { t } = useI18n();
@@ -17,7 +16,11 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="container mx-auto flex h-18 items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Link to="/" className="flex items-center gap-1" aria-label="Immo Djerba">
-          <img src={djerbaImmoLogo} alt="Djerba Immo Logo" className="h-12 w-auto object-contain" />
+          <img 
+            src="/assets/DjerbaImmo.png" 
+            alt="Djerba Immo Logo" 
+            className="h-12 w-auto object-contain" 
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-xl font-bold tracking-tight text-primary">
               IMMO <span className="text-gold">DJERBA</span>
@@ -154,26 +157,5 @@ function Dropdown({ label, items }: { label: string; items: { to: string; label:
         ))}
       </div>
     </div>
-  );
-}
-
-function Logo() {
-  return (
-    <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-gradient-sea text-white shadow-card">
-      <svg
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden
-      >
-        <path d="M3 12a9 9 0 0 1 18 0" />
-        <path d="M8 21V11l4-4 4 4v10" />
-        <circle cx="12" cy="7.5" r="0.6" fill="currentColor" />
-      </svg>
-    </span>
   );
 }

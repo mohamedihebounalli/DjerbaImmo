@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Handshake, MapPin } from "lucide-react";
-import aboutImg from "@/assets/about-menzel.webp";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
@@ -27,7 +26,11 @@ function AboutPage() {
           </div>
           <div className="relative">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-elegant">
-              <img src={aboutImg} alt="Patio djerbien" className="h-full w-full object-cover" />
+              <img 
+                src="/assets/about-menzel.webp" 
+                alt="Patio djerbien" 
+                className="h-full w-full object-cover" 
+              />
             </div>
           </div>
         </div>

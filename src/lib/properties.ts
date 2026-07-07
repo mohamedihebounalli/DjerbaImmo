@@ -77,8 +77,8 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 3,
     baths: 2,
-    area: 0,
-    landArea: 0,
+    area: 150,
+    landArea: 500,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -138,7 +138,7 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 3,
     baths: 2,
-    area: 0,
+    area: 150,
     landArea: 0,
     pricePerNight: 0,
     featured: true,
@@ -185,7 +185,8 @@ export const PROPERTIES: Property[] = [
       zone: "Houmt Souk",
       rooms: 3, // 2 suites + 1 bedroom = 3 rooms total
       baths: 4, // 1 inside salle d'eau + 1 outside salle d'eau
-      area: 0,
+      area: 180,
+      landArea: 450,
       pricePerNight: 0,
       featured: true,
       isNew: true,
@@ -236,8 +237,8 @@ export const PROPERTIES: Property[] = [
       zone: "Tezdaine",
       rooms: 5, // 5 chambres (studio independent mentioned but grouped or separate as in template)
       baths: 3,
-      area: 0,
-      landArea: 0,
+      area: 800,
+      landArea: 200,
       pricePerNight: 0,
       featured: true,
       isNew: true,
@@ -291,8 +292,8 @@ export const PROPERTIES: Property[] = [
     zone: "Tezdayin",
     rooms: 3, // 3 chambres dont une suite parentale
     baths: 3, // 1 suite parentale implicitly includes/implies a bath context, but explicitly only 1 exterior WC/douche is detailed. Setting minimal or 0 if strictly strict, or 1 for the suite. Let's look: text says "Douche extérieure + WC", interior baths missing info -> 0 or 1. Let's put 1 for the suite parentale.
-    area: 0,
-    landArea: 0,
+    area: 170,
+    landArea: 500,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -344,8 +345,8 @@ export const PROPERTIES: Property[] = [
     zone: "Mezraya",
     rooms: 4, // 4 chambres dont 1 suite parentale
     baths: 3, // 3 salles d’eau
-    area: 0,
-    landArea: 0,
+    area: 1200,
+    landArea: 240,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -393,8 +394,8 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 3, // S+3 (1 suite RDC + 2 suites à l'étage)
     baths: 3, // 3 suites parentales avec salle d’eau privative (plus 1 salle d'eau indépendante au RDC, totalisant 4 zones d'eau)
-    area: 0,
-    landArea: 0,
+    area: 150,
+    landArea: 240,
     pricePerNight: 0,
     featured: true,
     isNew: true, // "Magnifique villa récente"
@@ -450,8 +451,8 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 3, // S+3
     baths: 3, // 3 suites confortables
-    area: 0,
-    landArea: 0,
+    area: 150,
+    landArea: 240,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -499,8 +500,8 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 4, // 4 suites
     baths: 4, // 4 suites avec salles de bain privées
-    area: 0,
-    landArea: 0,
+    area: 280,
+    landArea: 1000,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -555,8 +556,8 @@ export const PROPERTIES: Property[] = [
     zone: "Midoun",
     rooms: 3,
     baths: 0,
-    area: 0,
-    landArea: 0,
+    area: 150,
+    landArea: 1100,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -606,8 +607,8 @@ export const PROPERTIES: Property[] = [
     zone: "Aghir",
     rooms: 2, // S+2 (1 suite parentale + 1 chambre)
     baths: 2, // 1 suite parentale + 1 salle d'eau commune
-    area: 0,
-    landArea: 0,
+    area: 130,
+    landArea: 550,
     pricePerNight: 0,
     featured: true,
     isNew: true,
@@ -660,153 +661,179 @@ export const PROPERTIES: Property[] = [
   // Annual rentals
   // Annual rentals
   // Annual rentals
-{
-  "id": "p30",
-  "ref": "AG3001",
-  "slug": "villa-de-luxe-a-aghir-djerba",
-  "title": "VILLA DE LUXE À AGHIR – DJERBA",
-  "type": "villa",
-  "transaction": "sale",
-  "zone": "Aghir",
-  "area": 340,
-  "salePrice": 0,
-  "featured": true,
-  "constructible": false,
-  "zoning": "",
-  "shortDescription": "Magnifique propriété de 340 m² bâtie sur un terrain de 1530 m², située à quelques minutes de la mer à Aghir.",
-  "description": "Vous cherchez une villa d'exception à acheter ou à louer pour vos vacances ? Découvrez cette magnifique propriété de 340 m², bâtie sur un terrain de 1530 m², située dans le prestigieux quartier d'Aghir, à quelques minutes de la mer. Disponible également en location saisonnière.",
-  "features": [
-    "4 chambres dont 2 suites parentales",
-    "Cuisine entièrement équipée",
-    "Grand salon lumineux",
-    "Piscine privée",
-    "Jardin aménagé",
-    "Espace barbecue",
-    "Garage + abri voiture",
-    "Caméras de sécurité",
-    "Pièce de rangement",
-    "Grande terrasse avec vue dégagée"
-  ],
-  "images": []
-},
-{
-  "id": "p31",
-  "ref": "MD3001",
-  "slug": "villa-splus4-avec-piscine-a-vendre-djerba-midoun",
-  "title": "VILLA S+4 AVEC PISCINE À VENDRE – DJERBA MIDOUN",
-  "type": "villa",
-  "transaction": "sale",
-  "zone": "Midoun",
-  "area": 315,
-  "salePrice": 0,
-  "featured": false,
-  "constructible": false,
-  "zoning": "Zone urbaine",
-  "shortDescription": "Une villa moderne, spacieuse et pleine de charme de 315 m² située en zone urbaine à Midoun, accessible aux étrangers avec titre bleu individuel.",
-  "description": "Une villa moderne, spacieuse et pleine de charme ! Située en zone urbaine et accessible aux étrangers avec un titre bleu individuel et un plan conforme. Cette magnifique propriété offre un grand confort avec ses 4 chambres, sa piscine privée et son jardin arboré.",
-  "features": [
-    "Accessible aux étrangers",
-    "Titre bleu individuel",
-    "Plan conforme",
-    "Grand salon lumineux",
-    "Cuisine équipée",
-    "4 chambres dont 3 suites",
-    "Terrasse conviviale",
-    "Piscine privée",
-    "Barbecue",
-    "Jardin gazonné & palmiers",
-    "Douche extérieure",
-    "Sécurité assurée (alarme + caméras)",
-    "Climatisation déjà installée",
-    "Terrain: 560 m²"
-  ],
-  "images": []
-},
-{
-  "id": "p32",
-  "ref": "HS3001",
-  "slug": "a-louer-a-l-annee-villa-splus4-meublee",
-  "title": "À LOUER À L’ANNÉE – Villa S+4 Meublée",
-  "type": "villa",
-  "transaction": "annual",
-  "zone": "Houmt Souk",
-  "area": 0,
-  "salePrice": 0,
-  "featured": false,
-  "constructible": false,
-  "zoning": "Quartier résidentiel",
-  "shortDescription": "Superbe villa meublée S+4 située dans un quartier résidentiel calme à Houmt Souk, à proximité du magasin Aziza et de l’École Internationale Victor Hugo.",
-  "description": "Découvrez cette superbe villa meublée, située dans un quartier résidentiel calme et sécurisé, idéale pour une famille à la recherche de confort et de tranquillité. Un cadre de vie exceptionnel alliant espace, confort et sérénité, proche de toutes les commodités.",
-  "features": [
-    "Meublée",
-    "4 chambres, dont 1 suite parentales",
-    "Grand salon lumineux",
-    "Cuisine fonctionnelle entièrement équipée",
-    "Garage",
-    "Quartier calme et agréable",
-    "Proche des commerces, écoles et commodités",
-    "À proximité du magasin Aziza",
-    "À quelques minutes de l’École Internationale Victor Hugo"
-  ],
-  "images": []
-},
-{
-  "id": "p33",
-  "ref": "HS3002",
-  "slug": "a-louer-a-l-annee-villa-neuve-splus5-avec-piscine",
-  "title": "À LOUER À L’ANNÉE – Villa Neuve S+5 avec Piscine",
-  "type": "villa",
-  "transaction": "annual",
-  "zone": "Houmt Souk",
-  "area": 0,
-  "salePrice": 0,
-  "featured": false,
-  "constructible": false,
-  "zoning": "Quartier résidentiel",
-  "shortDescription": "Magnifique villa neuve non meublée S+5 avec piscine privée, située dans un quartier résidentiel calme à Houmt Souk près de l’École Internationale Victor Hugo.",
-  "description": "Découvrez cette magnifique villa neuve, non meublée, située dans un quartier résidentiel calme et sécurisé, idéale pour une famille à la recherche de confort et de tranquillité. Un cadre de vie exceptionnel alliant espace, confort et sérénité.",
-  "features": [
-    "Neuve",
-    "Non meublée",
-    "5 chambres dont 1 suite parentale",
-    "Grand salon lumineux",
-    "Cuisine fonctionnelle",
-    "Piscine privée",
-    "Garage",
-    "Quartier calme et agréable",
-    "Proche des commerces, écoles et commodités",
-    "À proximité du magasin Aziza",
-    "À quelques minutes de l’École Internationale Victor Hugo"
-  ],
-  "images": []
-},{
-  "id": "p34",
-  "ref": "HS3003",
-  "slug": "location-annuelle-villa-meublee-a-djerba",
-  "title": "LOCATION ANNUELLE – VILLA MEUBLÉE À DJERBA",
-  "type": "villa",
-  "transaction": "annual",
-  "zone": "Houmt Souk",
-  "area": 0,
-  "salePrice": 0,
-  "featured": false,
-  "constructible": false,
-  "zoning": "Proximité École Française",
-  "shortDescription": "Villa meublée S+3 avec jardin et garage, idéalement située à Houmt Souk à proximité de l’École Française Victor Hugo.",
-  "description": "Découvrez cette charmante villa meublée disponible en location annuelle. Située à proximité immédiate de l'École Française Victor Hugo, elle offre un cadre de vie idéal, calme et confortable pour une famille.",
-  "features": [
-    "Meublée",
-    "3 chambres dont 1 suite parentale",
-    "Salon spacieux et lumineux",
-    "Cuisine équipée",
-    "1 salle d’eau",
-    "Jardin agréable",
-    "Entrée voiture",
-    "Garage (6m x 4m)",
-    "Proximité École Française Victor Hugo"
-  ],
-  "images": []
-},
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  // Annual rentals
+  {
+    id: "p32",
+    ref: "HS3001",
+    slug: "/location-annuelle/villa-meublee-houmt-souk",
+    title: "VILLA MEUBLÉE S+4 – HOUMT SOUK",
+    type: "villa",
+    transaction: "annual",
+    zone: "Houmt Souk",
+    rooms: 4,
+    baths: 2,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: false,
+    shortDescription: "Superbe villa meublée S+4 dans un quartier résidentiel calme.",
+    description: "Découvrez cette superbe villa meublée, située dans un quartier résidentiel calme et sécurisé à Houmt Souk, idéale pour une famille à la recherche de confort et de tranquillité. Située à proximité du magasin Aziza et de l’École Internationale Victor Hugo.",
+    features: [
+      "Villa entièrement meublée",
+      "4 chambres dont 1 suite parentale",
+      "Grand salon lumineux",
+      "Cuisine fonctionnelle entièrement équipée",
+      "Quartier calme, agréable et sécurisé",
+      "Proche des commerces et commodités",
+      "À quelques minutes de l’École Internationale Victor Hugo"
+    ],
+    amenities: [
+      "Garage"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa1AN/Villa1AN1.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN2.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN3.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN4.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN5.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN6.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN7.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN8.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN9.webp",
+      "/assets/AnnualVilla/Villa1AN/Villa1AN10.webp"
+    ]
+  },
+  {
+    id: "p33",
+    ref: "HS3002",
+    slug: "/location-annuelle/villa-neuve-piscine-houmt-souk",
+    title: "VILLA NEUVE S+5 AVEC PISCINE – HOUMT SOUK",
+    type: "villa",
+    transaction: "annual",
+    zone: "Houmt Souk",
+    rooms: 5,
+    baths: 2,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: true,
+    shortDescription: "Magnifique villa neuve, non meublée S+5 avec piscine privée à Houmt Souk.",
+    description: "Découvrez cette magnifique villa neuve, non meublée, située dans un quartier résidentiel calme et sécurisé à Houmt Souk. Offrant 5 chambres et une superbe piscine privée, elle est idéalement située à proximité du magasin Aziza et de l’École Internationale Victor Hugo.",
+    features: [
+      "Villa neuve (non meublée)",
+      "5 chambres dont 1 suite parentale",
+      "Grand salon lumineux",
+      "Cuisine fonctionnelle",
+      "Quartier résidentiel calme et sécurisé",
+      "À proximité du magasin Aziza",
+      "À quelques minutes de l’École Internationale Victor Hugo"
+    ],
+    amenities: [
+      "Piscine privée",
+      "Garage"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa2AN/Villa2AN1.webp",
+      "/assets/AnnualVilla/Villa2AN/Villa2AN2.webp",
+      "/assets/AnnualVilla/Villa2AN/Villa2AN3.webp",
+      "/assets/AnnualVilla/Villa2AN/Villa2AN4.webp",
+      "/assets/AnnualVilla/Villa2AN/Villa2AN5.webp",
+      "/assets/AnnualVilla/Villa2AN/Villa2AN6.webp"
+        ]
+  },
+  {
+    id: "p34",
+    ref: "HS3003",
+    slug: "/location-annuelle/villa-meublee-victor-hugo",
+    title: "VILLA MEUBLÉE PROCHE ÉCOLE VICTOR HUGO",
+    type: "villa",
+    transaction: "annual",
+    zone: "Houmt Souk",
+    rooms: 3,
+    baths: 2,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: false,
+    shortDescription: "Charmante villa meublée S+3 avec grand garage proche de l'École Victor Hugo.",
+    description: "Charmante villa meublée S+3 disponible en location annuelle à Houmt Souk, idéalement située à proximité immédiate de l'École Française Victor Hugo. Un cadre idéal, calme et confortable pour accueillir une famille.",
+    features: [
+      "Villa meublée",
+      "3 chambres dont 1 suite parentale",
+      "Salon spacieux et lumineux",
+      "Cuisine équipée",
+      "1 salle d’eau",
+      "Idéal pour une famille (confort et tranquillité)",
+      "Proximité École Française Victor Hugo"
+    ],
+    amenities: [
+      "Jardin agréable",
+      "Garage spacieux (6m x 4m)",
+      "Entrée voiture"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa3AN/Villa3AN1.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN2.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN3.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN4.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN5.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN6.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN7.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN8.webp",
+      "/assets/AnnualVilla/Villa3AN/Villa3AN9.webp"
+
+    ]
+  },
   // Sales
   // Sales
   // Sales
@@ -822,6 +849,63 @@ export const PROPERTIES: Property[] = [
   // Sales
   // Sales
   // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+  // Sales
+
   {
       id: "p20",
       ref: "GZ0001",
@@ -857,21 +941,21 @@ export const PROPERTIES: Property[] = [
         "Matériaux de construction haut de gamme",
       ],
       images: [
-          "/assets/VILLASALES/Villa1AV/Villa1AV1.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV2.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV3.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV4.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV5.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV6.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV7.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV8.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV9.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV10.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV11.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV12.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV13.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV14.webp",
-          "/assets/VILLASALES/Villa1AV/Villa1AV15.webp"
+          "/assets/SalesVilla/Villa1AV/Villa1AV1.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV2.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV3.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV4.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV5.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV6.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV7.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV8.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV9.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV10.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV11.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV12.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV13.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV14.webp",
+          "/assets/SalesVilla/Villa1AV/Villa1AV15.webp"
       ],
     },
   {
@@ -907,19 +991,19 @@ export const PROPERTIES: Property[] = [
         "Proche commodités (2 min Aziza et École Victor Hugo)",
       ],
       images: [
-            "/assets/VILLASALES/Villa2AV/Villa2AV1.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV2.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV3.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV4.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV5.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV6.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV7.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV8.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV9.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV10.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV11.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV12.webp",
-            "/assets/VILLASALES/Villa2AV/Villa2AV13.webp"
+            "/assets/SalesVilla/Villa2AV/Villa2AV1.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV2.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV3.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV4.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV5.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV6.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV7.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV8.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV9.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV10.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV11.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV12.webp",
+            "/assets/SalesVilla/Villa2AV/Villa2AV13.webp"
       ],
     },
 {
@@ -954,17 +1038,17 @@ export const PROPERTIES: Property[] = [
       "Acte notarié disponible",
     ],
     images: [
-          "/assets/VILLASALES/Villa3AV/Villa3AV1.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV2.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV3.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV4.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV5.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV6.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV7.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV8.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV9.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV10.webp",
-          "/assets/VILLASALES/Villa3AV/Villa3AV11.webp"
+          "/assets/SalesVilla/Villa3AV/Villa3AV1.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV2.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV3.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV4.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV5.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV6.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV7.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV8.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV9.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV10.webp",
+          "/assets/SalesVilla/Villa3AV/Villa3AV11.webp"
     ],
   },
   {
@@ -1000,15 +1084,15 @@ export const PROPERTIES: Property[] = [
       "Citerne d'eau traditionnelle (Fesguia)",
     ],
     images: [
-          "/assets/VILLASALES/Villa4AV/Villa4AV1.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV2.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV3.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV4.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV5.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV6.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV7.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV8.webp",
-          "/assets/VILLASALES/Villa4AV/Villa4AV9.webp"
+          "/assets/SalesVilla/Villa4AV/Villa4AV1.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV2.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV3.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV4.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV5.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV6.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV7.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV8.webp",
+          "/assets/SalesVilla/Villa4AV/Villa4AV9.webp"
     ],
   },
   {
@@ -1041,20 +1125,20 @@ export const PROPERTIES: Property[] = [
       "Entrée de voiture supplémentaire",
     ],
     images: [
-      "/assets/VILLASALES/Villa5AV/Villa5AV1.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV2.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV3.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV4.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV5.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV6.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV7.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV8.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV9.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV10.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV11.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV12.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV13.webp",
-      "/assets/VILLASALES/Villa5AV/Villa5AV14.webp"
+      "/assets/SalesVilla/Villa5AV/Villa5AV1.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV2.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV3.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV4.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV5.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV6.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV7.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV8.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV9.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV10.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV11.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV12.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV13.webp",
+      "/assets/SalesVilla/Villa5AV/Villa5AV14.webp"
     ],
   },
   {
@@ -1088,15 +1172,15 @@ export const PROPERTIES: Property[] = [
       "Proximité immédiate des commodités",
     ],
     images: [
-      "/assets/VILLASALES/Villa6AV/Villa6AV4.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV1.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV2.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV3.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV5.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV6.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV7.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV8.webp",
-      "/assets/VILLASALES/Villa6AV/Villa6AV9.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV4.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV1.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV2.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV3.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV5.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV6.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV7.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV8.webp",
+      "/assets/SalesVilla/Villa6AV/Villa6AV9.webp",
     ],
   },
   {
@@ -1132,39 +1216,150 @@ export const PROPERTIES: Property[] = [
       "Espace extérieur entièrement aménagé",
     ],
     images: [
-      "/assets/VILLASALES/Villa7AV/Villa7AV1.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV2.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV3.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV4.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV5.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV6.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV7.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV8.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV9.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV10.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV11.webp",
-      "/assets/VILLASALES/Villa7AV/Villa7AV12.webp"
+      "/assets/SalesVilla/Villa7AV/Villa7AV1.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV2.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV3.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV4.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV5.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV6.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV7.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV8.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV9.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV10.webp",
+      "/assets/SalesVilla/Villa7AV/Villa7AV11.webp",
     ],
   },
-  // Land
 {
-    id: "",
-    ref: "",
-    slug: "",
-    title: "",
-    type: "land",
+    id: "p27",
+    ref: "HS2007",
+    slug: "/vente-maison/villa-luxe-aghir",
+    title: "VILLA DE LUXE À AGHIR – DJERBA",
+    type: "villa",
     transaction: "sale",
-    zone: "",
-    area: 0,
+    zone: "Aghir",
+    rooms: 4,
+    baths: 3,
+    area: 340,
+    landArea: 1530,
     salePrice: 0,
-    featured: false,
-    constructible: false,
-    zoning: "",
-    shortDescription: "",
-    description: "",
-    features: [],
-    images: [],
+    shortDescription: "Villa d'exception de 340 m² avec piscine privée, située à Aghir, Djerba.",
+    description:
+      "VILLA DE LUXE À AGHIR – DJERBA. Vous cherchez une villa d'exception à acheter ? Découvrez cette magnifique propriété de 340 m², bâtie sur un terrain de 1530 m², située dans le prestigieux quartier d'Aghir, à quelques minutes de la mer. Disponible également en location saisonnière. Immo Djerba – Votre partenaire immobilier de confiance.",
+    features: [
+      "4 chambres dont 2 suites parentales",
+      "Cuisine entièrement équipée",
+      "Grand salon lumineux",
+      "Grande terrasse avec vue dégagée",
+      "Surface couverte de 340 m²",
+      "Terrain de 1530 m²",
+    ],
+    amenities: [
+      "Piscine privée",
+      "Jardin aménagé",
+      "Espace barbecue",
+      "Garage + abri voiture",
+      "Caméras de sécurité",
+      "Pièce de rangement",
+    ],
+    images: [
+      "/assets/SalesVilla/Villa9AV/Villa9AV1.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV2.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV3.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV4.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV5.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV6.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV7.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV8.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV9.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV10.webp",
+      "/assets/SalesVilla/Villa9AV/Villa9AV11.webp"
+    ],
   },
+  {
+    id: "p28",
+    ref: "MIDOUN-VILLA",
+    slug: "/vente-maison/villa-moderne-midoun",
+    title: "VILLA S+4 MODERNE AVEC PISCINE – DJERBA MIDOUN",
+    type: "villa",
+    transaction: "sale",
+    zone: "Midoun",
+    rooms: 4,
+    baths: 3,
+    area: 315,
+    landArea: 560,
+    salePrice: 0,
+    shortDescription: "Villa moderne et spacieuse de 315 m² avec piscine privée, située en zone urbaine à Midoun.",
+    description: "VILLA S+4 AVEC PISCINE À VENDRE – DJERBA MIDOUN. Située en zone urbaine et accessible aux étrangers, cette propriété dispose d'un titre bleu individuel et d'un plan conforme. Elle offre un cadre de vie moderne et spacieux. Immo Djerba – Votre partenaire immobilier de confiance.",
+    features: [
+      "4 chambres dont 3 suites",
+      "Grand salon lumineux",
+      "Cuisine équipée",
+      "Surface couverte de 315 m²",
+      "Terrain de 560 m²",
+      "Titre bleu individuel et plan conforme",
+      "Zone urbaine accessible aux étrangers"
+    ],
+    amenities: [
+      "Piscine privée",
+      "Jardin gazonné avec palmiers",
+      "Espace barbecue",
+      "Douche extérieure",
+      "Système de sécurité (alarme + caméras)",
+      "Climatisation installée"
+    ],
+    images: [
+      "/assets/SalesVilla/Villa10AV/Villa10AV1.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV2.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV3.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV4.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV5.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV6.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV7.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV8.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV9.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV10.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV11.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV12.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV13.webp",
+      "/assets/SalesVilla/Villa10AV/Villa10AV14.webp"    ],
+  },
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+  // Land
+
 ];
 
 export function findProperty(slug: string): Property | undefined {
