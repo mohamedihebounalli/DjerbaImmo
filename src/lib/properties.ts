@@ -69,8 +69,8 @@ function blockRange(
 export const PROPERTIES: Property[] = [
 {
     id: "p1",
-    ref: "MD0001", // M for Midoun based on your text
-    slug: "/location-saisonniere/villa-mia", // Kept exactly as /villa-mia so your route works
+    ref: "MD0001", 
+    slug: "/location-saisonniere/villa-mia", 
     title: "VILLA ADNEN",
     type: "villa",
     transaction: "seasonal",
@@ -130,8 +130,8 @@ export const PROPERTIES: Property[] = [
   },
 {
     id: "p2",
-    ref: "MD0002", // Based on proximity to Bourgou Mall / Midoun zone mentioned in hashtags
-    slug: "/location-saisonniere/villa-soleil", // Kept exact original slug structure as requested
+    ref: "MD0002", 
+    slug: "/location-saisonniere/villa-soleil",
     title: "VILLA SHAIMA",
     type: "villa",
     transaction: "seasonal",
@@ -177,14 +177,14 @@ export const PROPERTIES: Property[] = [
   },
   {
       id: "p3",
-      ref: "HS0001", // HS for Houmt Souk
-      slug: "/location-saisonniere/appartement-medina", // Kept original slug structure
-      title: "Villa Ridha", // Extracted title matching style from description header
-      type: "villa", // Changed from apartment to villa
+      ref: "HS0001", 
+      slug: "/location-saisonniere/appartement-medina", 
+      title: "Villa Ridha", 
+      type: "villa", 
       transaction: "seasonal",
       zone: "Houmt Souk",
-      rooms: 3, // 2 suites + 1 bedroom = 3 rooms total
-      baths: 4, // 1 inside salle d'eau + 1 outside salle d'eau
+      rooms: 3, 
+      baths: 4,
       area: 180,
       landArea: 450,
       pricePerNight: 0,
@@ -229,13 +229,13 @@ export const PROPERTIES: Property[] = [
   },
   {
       id: "p4",
-      ref: "TZ0001", // TZ for Tezdaine region
-      slug: "/location-saisonniere/menzel-tezdaine", // Kept original slug structure
+      ref: "TZ0001", 
+      slug: "/location-saisonniere/menzel-tezdaine", 
       title: "VILLA MIA",
-      type: "villa", // Changed from menzel to villa based on new description
+      type: "villa", 
       transaction: "seasonal",
       zone: "Tezdaine",
-      rooms: 5, // 5 chambres (studio independent mentioned but grouped or separate as in template)
+      rooms: 5,
       baths: 3,
       area: 800,
       landArea: 200,
@@ -284,14 +284,14 @@ export const PROPERTIES: Property[] = [
     },
     {
     id: "p5",
-    ref: "TZ0002", // TZ for Tezdayin area
-    slug: "/location-saisonniere/villa-islem", // Dynamic slug based on name
+    ref: "TZ0002", 
+    slug: "/location-saisonniere/villa-islem", 
     title: "VILLA ISLEM",
     type: "villa",
     transaction: "seasonal",
     zone: "Tezdayin",
-    rooms: 3, // 3 chambres dont une suite parentale
-    baths: 3, // 1 suite parentale implicitly includes/implies a bath context, but explicitly only 1 exterior WC/douche is detailed. Setting minimal or 0 if strictly strict, or 1 for the suite. Let's look: text says "Douche extérieure + WC", interior baths missing info -> 0 or 1. Let's put 1 for the suite parentale.
+    rooms: 3, 
+    baths: 3, 
     area: 170,
     landArea: 500,
     pricePerNight: 0,
@@ -337,14 +337,14 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "p6",
-    ref: "MZ0001", // MZ for Mezraya
+    ref: "MZ0001", 
     slug: "/location-saisonniere/villa-charlotte",
     title: "VILLA CHARLOTTE",
     type: "villa",
     transaction: "seasonal",
     zone: "Mezraya",
-    rooms: 4, // 4 chambres dont 1 suite parentale
-    baths: 3, // 3 salles d’eau
+    rooms: 4, 
+    baths: 3, 
     area: 1200,
     landArea: 240,
     pricePerNight: 0,
@@ -386,14 +386,14 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "p7",
-    ref: "MD0003", // M for Midoun (Plage Yeti region)
+    ref: "MD0003", 
     slug: "/location-saisonniere/villa-yeti-1",
     title: "VILLA YETI 1",
     type: "villa",
     transaction: "seasonal",
     zone: "Midoun",
-    rooms: 3, // S+3 (1 suite RDC + 2 suites à l'étage)
-    baths: 3, // 3 suites parentales avec salle d’eau privative (plus 1 salle d'eau indépendante au RDC, totalisant 4 zones d'eau)
+    rooms: 3, 
+    baths: 3, 
     area: 150,
     landArea: 240,
     pricePerNight: 0,
@@ -1277,7 +1277,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "p28",
-    ref: "MIDOUN-VILLA",
+    ref: "MD2008",
     slug: "/vente-maison/villa-moderne-midoun",
     title: "VILLA S+4 MODERNE AVEC PISCINE – DJERBA MIDOUN",
     type: "villa",
@@ -1323,6 +1323,106 @@ export const PROPERTIES: Property[] = [
       "/assets/SalesVilla/Villa10AV/Villa10AV13.webp",
       "/assets/SalesVilla/Villa10AV/Villa10AV14.webp"    ],
   },
+
+  {
+    id: "p29",
+    ref: "MD0029", 
+    slug: "/vente-maison/villa-plain-pied-arkou",
+    title: "VILLA DE PLAIN-PIED À ARKOU",
+    type: "villa",
+    transaction: "sale",
+    zone: "Arkou",
+    rooms: 3, 
+    baths: 3, 
+    area: 200, 
+    landArea: 700, 
+    salePrice: 0,
+    featured: true,
+    isNew: false,
+    shortDescription: "Belle villa de plain-pied de 200 m² sur un terrain de 700 m² à Arkou.",
+    description:
+      "Découvrez cette belle villa de plain-pied située dans un environnement calme à Arkou, idéale pour vivre à l’année ou pour un investissement locatif. Une opportunité exclusive proposée par Immo Djerba.",
+    features: [
+      "Villa de plain-pied",
+      "Surface couverte : 200 m²",
+      "Terrain de 700 m²",
+      "Située en zone agricole",
+      "Environnement calme à Arkou",
+      "Entrée voiture / Parking privé",
+    ],
+    amenities: [
+      "Grand salon",
+      "Jardin gazonné",
+      "Pergola",
+      "Cuisine",
+      "Parking",
+    ],
+      images: [
+        "/assets/SalesVilla/Villa11AV/Villa11AV1.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV2.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV3.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV4.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV5.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV6.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV7.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV8.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV9.webp",
+        "/assets/SalesVilla/Villa11AV/Villa11AV10.webp",
+    ],
+  },
+  {
+    id: "p30",
+    ref: "AG0030", 
+    slug: "/vente-maison/villa-luxe-vue-mer-aghir",
+    title: "VILLA DE LUXE AVEC VUE MER",
+    type: "villa",
+    transaction: "sale",
+    zone: "Aghir",
+    rooms: 4, 
+    baths: 4, 
+    area: 280, 
+    landArea: 1000,
+    salePrice: 0,
+    featured: true,
+    isNew: false,
+    shortDescription: "Magnifique villa haut standing de 280 m² avec vue mer exceptionnelle et piscine.",
+    description:
+      "Magnifique villa haut standing avec une vue mer exceptionnelle située entre Midoun & Aghir, à seulement 5 minutes de la plage d'Aghir. Dotée d'un Titre Bleu et située en Zone Agricole, cette propriété dispose d'énergie photovoltaïque et d'un puits d'eau.",
+    features: [
+      "Vue mer exceptionnelle",
+      "À seulement 5 minutes de la plage d'Aghir",
+      "Piscine de 9 m × 4,5 m",
+      "4 suites parentales indépendantes",
+      "4 terrasses, dont 2 avec vue mer",
+      "Énergie photovoltaïque & Puits d'eau",
+      "Titre Bleu (Zone Agricole)",
+      "Surface couverte : 280 m² | Terrain : 1 000 m²",
+    ],
+    amenities: [
+      "Piscine privée",
+      "Vue mer",
+      "Terrasses",
+      "Jardin arboré",
+      "Espace barbecue",
+      "Patio avec fontaine",
+      "Panneaux photovoltaïques",
+      "Puits d'eau",
+      "Cuisine moderne",
+    ],
+    images: [
+      "/assets/SalesVilla/Villa12AV/Villa12AV1.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV2.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV3.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV4.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV5.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV6.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV7.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV8.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV9.webp",
+      "/assets/SalesVilla/Villa12AV/Villa12AV10.webp"
+    ],
+  },
+
   // Land
   // Land
   // Land
