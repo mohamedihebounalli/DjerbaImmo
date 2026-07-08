@@ -39,13 +39,11 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
   const nights =
     range?.from && range?.to ? Math.max(0, differenceInCalendarDays(range.to, range.from)) : 0;
 
-  // Only calculate total if a valid price exists
   const total = hasPrice ? nights * (property.pricePerNight ?? 0) : 0;
 
   const fmtPrice = (n: number) =>
     new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
 
-  // ensure no blocked date sits inside range
   const rangeHasBlocked = useMemo(() => {
     if (!range?.from || !range?.to) return false;
     let d = range.from;
@@ -56,10 +54,17 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
     return false;
   }, [range, blockedSet]);
 
-  const canSubmit = nights > 0 && !rangeHasBlocked && name && phone;
+  // canSubmit valide aussi la cohérence des dates
+  const canSubmit = nights > 0 && !rangeHasBlocked;
 
-  const submit = () => {
-    if (!canSubmit || !range?.from || !range?.to) return;
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canSubmit || !range?.from || !range?.to) {
+      // Si les dates posent problème, on bloque la soumission manuellement
+      alert("Veuillez sélectionner une période de séjour valide.");
+      return;
+    }
+
     openWhatsApp({
       kind: "booking",
       property: {
@@ -68,19 +73,19 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
         url: propertyUrl(property.slug),
         priceLabel: hasPrice ? `${fmtPrice(property.pricePerNight ?? 0)} / nuit` : t("card.contactForPrice"),
       },
-      customer: { name, phone, email, adults, children },
+      customer: { name, phone, email: email || undefined, adults, children },
       dates: {
         checkIn: format(range.from, "dd/MM/yyyy"),
         checkOut: format(range.to, "dd/MM/yyyy"),
         nights,
       },
       totalPrice: hasPrice ? fmtPrice(total) : t("card.contactForPrice"),
-      requestType: "Demande de réservation séjour",
+      requestType: "Demande de réservation séjour (Location Saisonnière)",
     });
   };
 
   return (
-    <aside className="rounded-2xl border border-border bg-card p-5 shadow-elegant md:p-6">
+    <form onSubmit={submit} className="rounded-2xl border border-border bg-card p-5 shadow-elegant md:p-6">
       <div className="flex items-baseline justify-between gap-3 border-b border-border pb-4">
         <div>
           {hasPrice ? (
@@ -131,7 +136,6 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
           <Row label={t("detail.checkout")} value={range?.to ? format(range.to, "dd/MM/yyyy") : "—"} />
           <Row label={t("detail.nights")} value={String(nights)} />
           
-          {/* Conditionally render the total price line row only if a valid price exists */}
           {hasPrice && (
             <div className="mt-2 flex items-baseline justify-between border-t border-border pt-2">
               <span className="text-sm font-semibold text-primary">{t("detail.total")}</span>
@@ -143,17 +147,38 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
 
       <div className="mt-4 grid gap-3">
         <div className="grid gap-1.5">
-          <Label htmlFor="bk-name">{t("inquiry.name")}</Label>
-          <Input id="bk-name" value={name} onChange={(e) => setName(e.target.value)} />
+          <Label htmlFor="bk-name">{t("inquiry.name")} *</Label>
+          <Input 
+            id="bk-name" 
+            value={name} 
+            onChange={(e) => setName(e.target.value)} 
+            className="invalid:touched:border-destructive"
+            required
+            minLength={3}
+          />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1.5">
-            <Label htmlFor="bk-phone">{t("inquiry.phone")}</Label>
-            <Input id="bk-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+            <Label htmlFor="bk-phone">{t("inquiry.phone")} *</Label>
+            <Input 
+              id="bk-phone" 
+              type="tel" 
+              value={phone} 
+              onChange={(e) => setPhone(e.target.value)} 
+              className="invalid:touched:border-destructive"
+              required
+              pattern="^[+]?[0-9\s\-]{8,20}$"
+            />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="bk-email">{t("inquiry.email")}</Label>
-            <Input id="bk-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input 
+              id="bk-email" 
+              type="email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              className="invalid:touched:border-destructive"
+            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3">
@@ -169,9 +194,8 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
       </div>
 
       <Button
-        onClick={submit}
-        disabled={!canSubmit}
-        className="mt-5 w-full bg-[#25D366] text-white hover:bg-[#1ebe57]"
+        type="submit"
+        className="mt-5 w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold"
         size="lg"
       >
         <MessageCircle className="me-2 h-4 w-4" />
@@ -180,7 +204,7 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
       <p className="mt-2 text-center text-[11px] text-muted-foreground">
         {t("inquiry.note")}
       </p>
-    </aside>
+    </form>
   );
 }
 

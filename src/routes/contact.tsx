@@ -61,18 +61,41 @@ function ContactPage() {
         >
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label={t("contact.firstname")}>
-              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+              <Input 
+                value={firstName} 
+                onChange={(e) => setFirstName(e.target.value)} 
+                required 
+                minLength={2}
+                maxLength={50}
+              />
             </Field>
             <Field label={t("contact.lastname")}>
-              <Input value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+              <Input 
+                value={lastName} 
+                onChange={(e) => setLastName(e.target.value)} 
+                required 
+                minLength={2}
+                maxLength={50}
+              />
             </Field>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label={t("inquiry.phone")}>
-              <Input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+              <Input 
+                type="tel" 
+                value={phone} 
+                onChange={(e) => setPhone(e.target.value)} 
+                required 
+                pattern="^[+]?[0-9\s\-]{8,20}$"
+                title="Veuillez entrer un numéro de téléphone valide."
+              />
             </Field>
             <Field label={t("inquiry.email")}>
-              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <Input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+              />
             </Field>
           </div>
           <Field label={t("contact.type")}>
@@ -86,7 +109,13 @@ function ContactPage() {
             </Select>
           </Field>
           <Field label={t("inquiry.message")}>
-            <Textarea rows={5} value={message} onChange={(e) => setMessage(e.target.value)} />
+            <Textarea 
+              rows={5} 
+              value={message} 
+              onChange={(e) => setMessage(e.target.value)} 
+              minLength={10}
+              maxLength={1000}
+            />
           </Field>
           <Button
             type="submit"
