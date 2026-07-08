@@ -80,9 +80,18 @@ export function Footer() {
       </div>
 
       <div className="border-t border-primary-foreground/15">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-primary-foreground/60 md:flex-row md:px-6">
-          <p>© {year} Immo Djerba. {t("footer.rights")}</p>
-          <p>Vente · Achat · Location à Djerba</p>
+        <div className="container mx-auto flex justify-center px-4 py-5 text-center text-xs text-primary-foreground/60 md:px-6">
+          <span className="font-display uppercase tracking-widest">
+            © {year} Website Developed by{" "}
+            <a 
+              href="https://www.instagram.com/houbarunner/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="font-bold text-gold hover:underline"
+            >
+              HoubaRunner
+            </a>
+          </span>
         </div>
       </div>
     </footer>
