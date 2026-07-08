@@ -123,8 +123,15 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaAdnen/VillaAdnen8.webp"
     ],
     blockedDates: [
-          ...blockRange(6, 7, 2026, 10, 7, 2026),
-          ...blockRange(25, 7, 2026, 25, 7, 2026)
+    ...blockRange(29, 6, 2026, 1, 7, 2026),
+    ...blockRange(7, 7, 2026, 11, 7, 2026),
+    ...blockRange(18, 7, 2026, 19, 7, 2026),
+    ...blockRange(20, 7, 2026, 26, 7, 2026),
+    ...blockRange(27, 7, 2026, 28, 7, 2026),
+    ...blockRange(1, 8, 2026, 2, 8, 2026),
+    ...blockRange(3, 8, 2026, 9, 8, 2026),
+    ...blockRange(10, 8, 2026, 16, 8, 2026),
+    ...blockRange(17, 8, 2026, 22, 8, 2026)
     ],
 
   },
@@ -172,8 +179,11 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaShaima/VillaShaima9.webp",
           "/assets/VillaShaima/VillaShaima10.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(30, 6, 2026, 5, 7, 2026),
+    ...blockRange(21, 7, 2026, 26, 7, 2026),
+    ...blockRange(29, 7, 2026, 1, 8, 2026),
+    ...blockRange(9, 8, 2026, 9, 8, 2026),
+    ...blockRange(10, 8, 2026, 13, 8, 2026)
   },
   {
       id: "p3",
@@ -280,7 +290,13 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaMia/VillaMia10.webp",
           "/assets/VillaMia/VillaMia11.webp"
       ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
+    ...blockRange(6, 7, 2026, 12, 7, 2026),
+    ...blockRange(20, 7, 2026, 26, 7, 2026),
+    ...blockRange(27, 7, 2026, 2, 8, 2026),
+    ...blockRange(3, 8, 2026, 9, 8, 2026),
+    ...blockRange(10, 8, 2026, 15, 8, 2026),
+    ...blockRange(21, 8, 2026, 23, 8, 2026),
+    ...blockRange(24, 8, 2026, 30, 8, 2026)
     },
     {
     id: "p5",
@@ -339,7 +355,7 @@ export const PROPERTIES: Property[] = [
     id: "p6",
     ref: "MZ0001", 
     slug: "/location-saisonniere/villa-charlotte",
-    title: "VILLA CHARLOTTE",
+    title: "VILLA CHARLOTTE", // Villa Adel
     type: "villa",
     transaction: "seasonal",
     zone: "Mezraya",
@@ -381,8 +397,12 @@ export const PROPERTIES: Property[] = [
       "/assets/VillaCharlotte/VillaCharlotte8.webp",
       "/assets/VillaCharlotte/VillaCharlotte9.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(5, 7, 2026, 5, 7, 2026),
+    ...blockRange(6, 7, 2026, 8, 7, 2026),
+    ...blockRange(10, 7, 2026, 12, 7, 2026),
+    ...blockRange(14, 7, 2026, 16, 7, 2026),
+    ...blockRange(2, 8, 2026, 2, 8, 2026),
+    ...blockRange(3, 8, 2026, 6, 8, 2026)
   },
   {
     id: "p7",
@@ -438,8 +458,14 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaYati1/VillaYati12.webp",
           "/assets/VillaYati1/VillaYati13.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(5, 7, 2026, 5, 7, 2026),
+    ...blockRange(6, 7, 2026, 12, 7, 2026),
+    ...blockRange(13, 7, 2026, 19, 7, 2026),
+    ...blockRange(25, 7, 2026, 26, 7, 2026),
+    ...blockRange(27, 7, 2026, 1, 8, 2026),
+    ...blockRange(5, 8, 2026, 9, 8, 2026),
+    ...blockRange(11, 8, 2026, 15, 8, 2026),
+    ...blockRange(25, 8, 2026, 28, 8, 2026)
   },
   {
     id: "p8",
@@ -487,8 +513,12 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaYati2/VillaYatii9.webp",
           "/assets/VillaYati2/VillaYatii10.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(29, 6, 2026, 4, 7, 2026),
+    ...blockRange(6, 7, 2026, 12, 7, 2026),
+    ...blockRange(18, 7, 2026, 19, 7, 2026),
+    ...blockRange(20, 7, 2026, 25, 7, 2026),
+    ...blockRange(9, 8, 2026, 9, 8, 2026),
+    ...blockRange(10, 8, 2026, 15, 8, 2026)
   },
   {
     id: "p9",
@@ -543,8 +573,12 @@ export const PROPERTIES: Property[] = [
           "/assets/VillaMaldives/VillaMaldives15.webp",
           "/assets/VillaMaldives/VillaMaldives16.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(18, 7, 2026, 19, 7, 2026),
+    ...blockRange(20, 7, 2026, 20, 7, 2026),
+    ...blockRange(25, 7, 2026, 26, 7, 2026),
+    ...blockRange(27, 7, 2026, 27, 7, 2026),
+    ...blockRange(3, 8, 2026, 6, 8, 2026),
+    ...blockRange(13, 8, 2026, 16, 8, 2026)
   },
   {
     id: "p10",
@@ -571,7 +605,7 @@ export const PROPERTIES: Property[] = [
       "Cuisine entièrement équipée",
       "Grand jardin avec pergola & Espace barbecue",
       "Terrain de pétanque privé",
-      "Terrasse sous arcade",
+      "Terrasse sous arcsh",
       "Quartier calme, sans vis-à-vis proche plage & centre-ville",
     ],
     amenities: [
@@ -594,8 +628,15 @@ export const PROPERTIES: Property[] = [
       "/assets/VillaBourina/VillaBourina9.webp",
       "/assets/VillaBourina/VillaBourina10.webp"
     ],
-              // blockedDates: [...blockRange(15, 10), ...blockRange(60, 21)],
-
+    ...blockRange(6, 7, 2026, 12, 7, 2026),
+    ...blockRange(13, 7, 2026, 14, 7, 2026),
+    ...blockRange(17, 7, 2026, 19, 7, 2026),
+    ...blockRange(20, 7, 2026, 25, 7, 2026),
+    ...blockRange(28, 7, 2026, 2, 8, 2026),
+    ...blockRange(4, 8, 2026, 9, 8, 2026),
+    ...blockRange(10, 8, 2026, 10, 8, 2026),
+    ...blockRange(14, 8, 2026, 16, 8, 2026),
+    ...blockRange(17, 8, 2026, 20, 8, 2026)
   },
   {
     id: "p111",
