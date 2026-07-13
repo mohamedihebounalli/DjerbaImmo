@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BedDouble, Bath, Maximize, MapPin } from "lucide-react";
 import type { Property } from "@/lib/properties";
 import { useI18n } from "@/lib/i18n";
-import { LoadingImage } from "@/components/LoadingImage";
+import { LoadingImage } from "@/components/ImageWithLoader";
 
 export function PropertyCard({ property }: { property: Property }) {
   const { t, lang } = useI18n();

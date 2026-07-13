@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
+import { ImageWithLoader } from "@/components/ImageWithLoader";
 
 export function ImageGallery({ images, title }: { images: string[]; title: string }) {
   const [active, setActive] = useState(0);
@@ -25,7 +26,7 @@ export function ImageGallery({ images, title }: { images: string[]; title: strin
           onClick={() => setLightboxOpen(true)}
           className="group relative aspect-[16/10] col-span-2 sm:col-span-3 md:col-span-3 md:row-span-3 w-full cursor-zoom-in overflow-hidden rounded-2xl bg-muted shadow-md"
         >
-          <img
+          <ImageWithLoader
             src={images[active]}
             alt={`${title} — photo ${active + 1}`}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-102"
@@ -75,7 +76,7 @@ export function ImageGallery({ images, title }: { images: string[]; title: strin
                 : "border-transparent opacity-90 hover:opacity-100")
             }
           >
-            <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+            <ImageWithLoader src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
           </button>
         ))}
       </div>
@@ -107,10 +108,11 @@ export function ImageGallery({ images, title }: { images: string[]; title: strin
               </button>
             )}
 
-            <img
+            <ImageWithLoader
+              wrapperClassName="max-h-[85vh] max-w-full rounded-lg overflow-hidden shadow-2xl"
               src={images[active]}
               alt={`${title} — plein écran`}
-              className="max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
+              className="max-h-[85vh] max-w-full object-contain"
               onClick={(e) => e.stopPropagation()}
             />
 

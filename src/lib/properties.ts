@@ -395,7 +395,8 @@ export const PROPERTIES: Property[] = [
       "/assets/VillaCharlotte/VillaCharlotte6.webp",
       "/assets/VillaCharlotte/VillaCharlotte7.webp",
       "/assets/VillaCharlotte/VillaCharlotte8.webp",
-      "/assets/VillaCharlotte/VillaCharlotte9.webp"
+      "/assets/VillaCharlotte/VillaCharlotte9.webp",
+      "/assets/VillaCharlotte/VillaCharlotte10.webp",
     ],
     ...blockRange(5, 7, 2026, 5, 7, 2026),
     ...blockRange(6, 7, 2026, 8, 7, 2026),
