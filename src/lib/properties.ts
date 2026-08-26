@@ -873,7 +873,94 @@ export const PROPERTIES: Property[] = [
       "/assets/AnnualVilla/Villa3AN/Villa3AN7.webp",
       "/assets/AnnualVilla/Villa3AN/Villa3AN8.webp",
       "/assets/AnnualVilla/Villa3AN/Villa3AN9.webp"
-
+    ]
+    
+  },
+  {
+    id: "p35",
+    ref: "AG3005",
+    slug: "/location-annuelle/villa-haut-standing-saguia",
+    title: "VILLA HAUT STANDING AVEC PISCINE – SAGUIA",
+    type: "villa",
+    transaction: "annual",
+    zone: "Aghir",
+    rooms: 3,
+    baths: 4,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: false,
+    shortDescription: "Magnifique villa S+3 meublée avec piscine à 200m de la plage de Saguia.",
+    description: "Une adresse d'exception à Djerba ! Magnifique villa S+3 entièrement meublée avec piscine privée, située dans un cadre calme et recherché à seulement 200 mètres de la plage de Saguia. Le loyer comprend l'eau, l'électricité ainsi que l'entretien du jardin et de la piscine.",
+    features: [
+      "À seulement 200 mètres de la plage de Saguia",
+      "Piscine privée & Douche extérieure",
+      "3 suites parentales (1 au RDC, 2 à l'étage)",
+      "Loyer charges comprises (Eau, Électricité, Jardin, Piscine)",
+      "Garage de 56 m²",
+      "Grande terrasse & Accès au toit",
+      "Espace barbecue & Lingerie",
+      "Climatisation dans toute la villa"
+    ],
+    amenities: [
+      "Piscine privée",
+      "Jardin paysager",
+      "Garage",
+      "Climatisation",
+      "Cuisine équipée",
+      "Espace barbecue",
+      "Terrasse",
+      "Lingerie"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa4AN/Villa4AN1.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN2.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN3.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN4.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN5.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN6.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN7.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN8.webp",
+      "/assets/AnnualVilla/Villa4AN/Villa4AN9.webp"
+    ]
+  },
+  {
+    id: "p36",
+    ref: "M3006",
+    slug: "/location-annuelle/villa-s2-independante-midoun",
+    title: "VILLA S+2 INDÉPENDANTE – MIDOUN",
+    type: "villa",
+    transaction: "annual",
+    zone: "Midoun",
+    rooms: 2,
+    baths: 1,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 1000,
+    featured: false,
+    isNew: false,
+    shortDescription: "Villa S+2 indépendante avec jardin proche Magasin Aziza et École Victor Hugo.",
+    description: "S+2 indépendante à louer à l’année, idéalement située à proximité du Magasin Aziza et de l’École Française Victor Hugo. Emplacement pratique et recherché, idéal pour une famille ou un couple.",
+    features: [
+      "S+2 entièrement indépendante",
+      "Loyer : 1000 DT / mois",
+      "Proximité immédiate Magasin Aziza",
+      "Proche École Française Victor Hugo",
+      "Jardin extérieur",
+      "Abri voiture"
+    ],
+    amenities: [
+      "Jardin",
+      "Abri voiture"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa5AN/Villa5AN1.webp",
+      "/assets/AnnualVilla/Villa5AN/Villa5AN2.webp",
+      "/assets/AnnualVilla/Villa5AN/Villa5AN3.webp",
+      "/assets/AnnualVilla/Villa5AN/Villa5AN4.webp",
+      "/assets/AnnualVilla/Villa5AN/Villa5AN5.webp",
+      "/assets/AnnualVilla/Villa5AN/Villa5AN6.webp"
     ]
   },
   // Sales
