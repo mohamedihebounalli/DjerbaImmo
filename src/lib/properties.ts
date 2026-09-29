@@ -1,5 +1,6 @@
-export type PropertyType = "villa" | "apartment" | "menzel" | "studio" | "land";
+export type PropertyType = "villa" | "apartment" | "menzel" | "studio" | "land" | "houche";
 export type Transaction = "sale" | "annual" | "seasonal";
+export type PropertyStatus = "available" | "sold" | "rented";
 
 export type Property = {
   id: string;
@@ -8,6 +9,9 @@ export type Property = {
   title: string;
   type: PropertyType;
   transaction: Transaction;
+  status?: PropertyStatus;
+  isSold?: boolean;
+  isRented?: boolean;
   zone: string;
   rooms?: number;
   baths?: number;
@@ -800,6 +804,8 @@ export const PROPERTIES: Property[] = [
     title: "VILLA NEUVE S+5 AVEC PISCINE – HOUMT SOUK",
     type: "villa",
     transaction: "annual",
+    status: "rented",
+    isRented: true,
     zone: "Houmt Souk",
     rooms: 5,
     baths: 2,
@@ -807,7 +813,7 @@ export const PROPERTIES: Property[] = [
     landArea: 0,
     pricePerMonth: 0,
     featured: false,
-    isNew: true,
+    isNew: false,
     shortDescription: "Magnifique villa neuve, non meublée S+5 avec piscine privée à Houmt Souk.",
     description: "Découvrez cette magnifique villa neuve, non meublée, située dans un quartier résidentiel calme et sécurisé à Houmt Souk. Offrant 5 chambres et une superbe piscine privée, elle est idéalement située à proximité du magasin Aziza et de l’École Internationale Victor Hugo.",
     features: [
@@ -830,7 +836,7 @@ export const PROPERTIES: Property[] = [
       "/assets/AnnualVilla/Villa2AN/Villa2AN4.webp",
       "/assets/AnnualVilla/Villa2AN/Villa2AN5.webp",
       "/assets/AnnualVilla/Villa2AN/Villa2AN6.webp"
-        ]
+    ]
   },
   {
     id: "p34",
@@ -839,6 +845,8 @@ export const PROPERTIES: Property[] = [
     title: "VILLA MEUBLÉE PROCHE ÉCOLE VICTOR HUGO",
     type: "villa",
     transaction: "annual",
+    status: "rented",
+    isRented: true,
     zone: "Houmt Souk",
     rooms: 3,
     baths: 2,
@@ -927,11 +935,13 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "p36",
-    ref: "M3006",
+    ref: "HS3006",
     slug: "/location-annuelle/villa-s2-independante-midoun",
     title: "VILLA S+2 INDÉPENDANTE – MIDOUN",
     type: "villa",
     transaction: "annual",
+    status: "rented",
+    isRented: true,
     zone: "Midoun",
     rooms: 2,
     baths: 1,
@@ -961,6 +971,94 @@ export const PROPERTIES: Property[] = [
       "/assets/AnnualVilla/Villa5AN/Villa5AN4.webp",
       "/assets/AnnualVilla/Villa5AN/Villa5AN5.webp",
       "/assets/AnnualVilla/Villa5AN/Villa5AN6.webp"
+    ]
+  },
+  {
+    id: "p37",
+    ref: "M3007",
+    slug: "/location-annuelle/villa-s5-neuve-midoun",
+    title: "VILLA S+5 NEUVE – DJERBA MIDOUN",
+    type: "villa",
+    transaction: "annual",
+    zone: "Midoun",
+    rooms: 5,
+    baths: 0,
+    area: 0,
+    landArea: 1000,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: true,
+    shortDescription: "Villa S+5 toute neuve jamais habitée sur plus de 1000 m² à 1,5 km de Midoun.",
+    description: "Villa S+5 toute neuve et jamais habitée disponible en location annuelle à Djerba Midoun. Située dans un environnement calme et proche de toutes les commodités, elle dispose d'une construction moderne, d'un terrain de plus de 1 000 m² et d'une réserve d'eau prévue en cas de coupure.",
+    features: [
+      "Villa S+5 toute neuve (jamais habitée)",
+      "À 1,5 km du centre-ville de Midoun",
+      "À environ 5 km de la plage de Saguia",
+      "Grand terrain de plus de 1 000 m²",
+      "Construction moderne et prestations de qualité",
+      "Réserve d'eau intégrée",
+      "Cadre calme et environnement privilégié"
+    ],
+    amenities: [
+      "Grand jardin",
+      "Réserve d'eau",
+      "Parking"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa6AN/Villa6AN1.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN2.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN3.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN4.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN5.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN6.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN7.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN8.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN9.webp",
+      "/assets/AnnualVilla/Villa6AN/Villa6AN10.webp"
+    ]
+  },
+  {
+    id: "p39",
+    ref: "HS3008", // Proximity to Clinique Echifa (Fatou / Houmt Souk zone)
+    slug: "/location-annuelle/villa-s3-meublee-fatou",
+    title: "VILLA S+3 MEUBLÉE AVEC VUE MER – FATOU",
+    type: "villa",
+    transaction: "annual",
+    zone: "Houmt Souk",
+    rooms: 3,
+    baths: 2,
+    area: 0,
+    landArea: 0,
+    pricePerMonth: 0,
+    featured: false,
+    isNew: false,
+    shortDescription: "Belle villa S+3 entièrement meublée avec vue mer, située proche de la Clinique Echifa.",
+    description: "Belle villa S+3 entièrement meublée disponible en location annuelle à Fatou, à proximité immédiate de la Clinique Echifa. Située dans un cadre agréable et résidentiel, elle offre tout le confort moderne avec climatisation complète et une belle terrasse à l'étage offrant une vue sur la mer.",
+    features: [
+      "Villa S+3 entièrement meublée avec soin",
+      "3 chambres dont 1 suite parentale",
+      "Terrasse à l'étage avec belle vue sur la mer",
+      "Climatisation dans toutes les pièces",
+      "Proximité immédiate de la Clinique Echifa (Fatou)",
+      "Emplacement stratégique et cadre résidentiel",
+      "Prête à vous accueillir sans aménagement à prévoir"
+    ],
+    amenities: [
+      "Meublé",
+      "Climatisation",
+      "Terrasse",
+      "Vue mer"
+    ],
+    images: [
+      "/assets/AnnualVilla/Villa7AN/Villa7AN1.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN2.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN3.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN4.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN5.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN6.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN7.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN8.webp",
+      "/assets/AnnualVilla/Villa7AN/Villa7AN9.webp"
     ]
   },
   // Sales
@@ -1094,6 +1192,8 @@ export const PROPERTIES: Property[] = [
       title: "VILLA NEUVE & MODERNE S+3 - ZONE AGRICOLE",
       type: "villa",
       transaction: "sale",
+      status: "sold",
+      isSold: true,
       zone: "Houmt Souk",
       rooms: 3,
       baths: 2, // 1 suite parentale + 1 commune
@@ -1184,9 +1284,11 @@ export const PROPERTIES: Property[] = [
     id: "p23",
     ref: "HS0005",
     slug: "/vente-maison/villa-vue-mer-houmt-souk",
-    title: "SUPERBE VILLA AVEC VUE SUR MER S+5",
+    title: "SUPERBE VILLA AVEC PISCINE",
     type: "villa",
     transaction: "sale",
+    status: "sold",
+    isSold: true,
     zone: "Houmt Souk",
     rooms: 5, // S+5 (2 chambres + 1 suite au RDC, 2 chambres + 1 suite à l'étage)
     baths: 4, // 1 suite RDC + 1 SDB RDC + 1 suite Étage + 1 SDB Étage
@@ -1550,6 +1652,48 @@ export const PROPERTIES: Property[] = [
       "/assets/SalesVilla/Villa12AV/Villa12AV9.webp",
       "/assets/SalesVilla/Villa12AV/Villa12AV10.webp"
     ],
+  },
+  {
+    id: "p38",
+    ref: "AG038",
+    slug: "/vente-maison/houche-arbi-aghir",
+    title: "HOUCHE ARBI AUTHENTIQUE À VENDRE – AGHIR",
+    type: "houche",
+    transaction: "sale",
+    zone: "Aghir",
+    rooms: 0,
+    baths: 0,
+    area: 170,
+    landArea: 852,
+    salePrice: 0,
+    featured: false,
+    isNew: false,
+    shortDescription: "Houche Arbi de 170 m² sur un terrain de 852 m² à Aghir avec finitions à prévoir.",
+    description: "Une belle opportunité à Aghir ! Houche Arbi authentique avec un fort potentiel, idéal pour une résidence familiale ou un projet d'investissement à Djerba. Situé dans un emplacement privilégié proche des commodités et de la mer, le bien dispose d'une partie des finitions à prévoir (notamment les revêtements), vous permettant de le personnaliser à votre goût.",
+    features: [
+      "Houche Arbi traditionnel",
+      "Finitions à prévoir (revêtements, etc.)",
+      "Surface couverte : 170 m²",
+      "Grand terrain de 852 m² avec fort potentiel",
+      "Proximité immédiate des commodités et de la mer",
+      "Papiers en règle (héritage)",
+      "Compteurs eau et STEG installés"
+    ],
+    amenities: [
+      "Jardin / Grand terrain",
+      "Réserve d'eau",
+      "Compteur eau",
+      "Compteur électricité (STEG)"
+    ],
+    images: [
+      "/assets/SalesVilla/Villa13AV/Villa13AV1.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV2.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV3.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV4.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV5.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV6.webp",
+      "/assets/SalesVilla/Villa13AV/Villa13AV7.webp"
+    ]
   },
 
   // Land

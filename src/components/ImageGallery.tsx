@@ -2,10 +2,24 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
 import { ImageWithLoader } from "@/components/ImageWithLoader";
 
-export function ImageGallery({ images, title }: { images: string[]; title: string }) {
+export function ImageGallery({
+  images,
+  title,
+  isSold,
+  isRented,
+  badgeText,
+}: {
+  images: string[];
+  title: string;
+  isSold?: boolean;
+  isRented?: boolean;
+  badgeText?: string;
+}) {
   const [active, setActive] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const total = images.length;
+
+  const displayBadge = badgeText || (isRented ? "DÉJÀ LOUÉE" : isSold ? "DÉJÀ VENDU" : null);
 
   const prev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -31,6 +45,21 @@ export function ImageGallery({ images, title }: { images: string[]; title: strin
             alt={`${title} — photo ${active + 1}`}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-102"
           />
+          {displayBadge && (
+            <div className="absolute start-4 top-4 z-20 pointer-events-none">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-white shadow-xl ring-2 ring-white/50 backdrop-blur-md">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                {displayBadge}
+              </span>
+            </div>
+          )}
+          {displayBadge && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 pointer-events-none">
+              <span className="rounded-xl bg-red-600/90 px-5 py-2 font-display text-sm md:text-lg font-black uppercase tracking-widest text-white shadow-2xl backdrop-blur-sm border border-white/20 -rotate-3">
+                {displayBadge}
+              </span>
+            </div>
+          )}
           <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
 
           {/* Hover Maximize Icon */}

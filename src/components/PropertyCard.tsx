@@ -26,6 +26,10 @@ export function PropertyCard({ property }: { property: Property }) {
     return `${fmtPrice(property.pricePerNight, lang)} ${t("card.perNight")}`;
   })();
 
+  const isSold = property.isSold || property.status === "sold";
+  const isRented = property.isRented || property.status === "rented";
+  const isUnavailable = isSold || isRented;
+
   const txLabel =
     property.transaction === "sale"
       ? t("tx.sale")
@@ -42,22 +46,63 @@ export function PropertyCard({ property }: { property: Property }) {
         <LoadingImage
           src={property.images[0]}
           alt={property.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+            isUnavailable ? "brightness-95" : ""
+          }`}
         />
-        <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3">
-          <span className="rounded-full bg-primary/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur">
-            {txLabel}
-          </span>
-          {property.isNew && (
+        {/* Top Badges */}
+        <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3">
+          {isRented ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-lg ring-2 ring-white/50 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+              {t("card.rented")}
+            </span>
+          ) : isSold ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-lg ring-2 ring-white/50 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+              {t("card.sold")}
+            </span>
+          ) : (
+            <span className="rounded-full bg-primary/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur">
+              {txLabel}
+            </span>
+          )}
+          {property.isNew && !isUnavailable && (
             <span className="rounded-full bg-turquoise px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-turquoise-foreground">
               {t("card.new")}
             </span>
           )}
         </div>
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent p-3">
-          <span className="rounded-md bg-gold px-3 py-1.5 text-sm font-bold text-gold-foreground shadow-card">
+
+        {/* Center Sold / Rented Stamp Overlay */}
+        {isUnavailable && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 pointer-events-none">
+            <span className="rounded-lg bg-red-600/90 px-3.5 py-1.5 font-display text-xs md:text-sm font-black uppercase tracking-widest text-white shadow-2xl backdrop-blur-sm border border-white/20 -rotate-3">
+              {isRented ? t("detail.rentedBadge") : t("detail.soldBadge")}
+            </span>
+          </div>
+        )}
+
+        {/* Bottom Price Bar */}
+        <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-2 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent p-3">
+          <span
+            className={`rounded-md px-3 py-1.5 text-sm font-bold shadow-card ${
+              isUnavailable
+                ? "bg-muted/95 text-muted-foreground line-through backdrop-blur"
+                : "bg-gold text-gold-foreground"
+            }`}
+          >
             {priceLabel}
           </span>
+          {isRented ? (
+            <span className="rounded-md bg-red-600/95 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow backdrop-blur">
+              {t("card.rented")}
+            </span>
+          ) : isSold ? (
+            <span className="rounded-md bg-red-600/95 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow backdrop-blur">
+              {t("card.sold")}
+            </span>
+          ) : null}
         </div>
       </div>
 

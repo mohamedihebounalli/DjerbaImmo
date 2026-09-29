@@ -51,6 +51,9 @@ export function PropertyDetail({ property }: { property: Property }) {
         : { to: "/location/saisonniere", label: t("nav.rent.seasonal") };
 
   const isSeasonal = property.transaction === "seasonal";
+  const isSold = property.isSold || property.status === "sold";
+  const isRented = property.isRented || property.status === "rented";
+  const isUnavailable = isSold || isRented;
 
   return (
     <article className="pb-16">
@@ -82,6 +85,17 @@ export function PropertyDetail({ property }: { property: Property }) {
       <header className="container mx-auto flex flex-col gap-4 px-4 pb-6 pt-4 md:flex-row md:items-end md:justify-between md:px-6">
         <div>
           <div className="flex flex-wrap items-center gap-2">
+            {isRented ? (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-md ring-2 ring-red-400/40">
+                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                {t("detail.rentedBadge")}
+              </span>
+            ) : isSold ? (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-md ring-2 ring-red-400/40">
+                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                {t("detail.soldBadge")}
+              </span>
+            ) : null}
             <span className="rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
               {property.transaction === "sale"
                 ? t("tx.sale")
@@ -92,7 +106,7 @@ export function PropertyDetail({ property }: { property: Property }) {
             <span className="rounded-full bg-secondary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-secondary-foreground">
               {t(`type.${property.type}`)}
             </span>
-            {property.isNew && (
+            {property.isNew && !isUnavailable && (
               <span className="rounded-full bg-turquoise px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-turquoise-foreground">
                 {t("card.new")}
               </span>
@@ -112,12 +126,100 @@ export function PropertyDetail({ property }: { property: Property }) {
           </p>
         </div>
         <div className="text-end">
-          <div className="font-display text-3xl font-bold text-gold md:text-4xl">{priceLabel}</div>
+          <div
+            className={`font-display text-3xl font-bold md:text-4xl ${
+              isUnavailable ? "text-muted-foreground line-through text-2xl md:text-3xl" : "text-gold"
+            }`}
+          >
+            {priceLabel}
+          </div>
+          {isUnavailable && (
+            <div className="mt-1 font-display text-base font-black uppercase tracking-wider text-red-600">
+              {isRented ? t("detail.rentedBadge") : t("detail.soldBadge")}
+            </div>
+          )}
         </div>
       </header>
 
+      {/* Sold announcement banner */}
+      {isSold && (
+        <div className="container mx-auto mb-6 px-4 md:px-6">
+          <div className="flex flex-col justify-between gap-4 rounded-2xl border-2 border-red-500/30 bg-red-50/80 p-4 shadow-sm backdrop-blur-sm dark:bg-red-950/30 sm:flex-row sm:items-center md:p-5">
+            <div className="flex items-center gap-3.5">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-red-600 text-base font-black text-white shadow-sm">
+                ✓
+              </span>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-black uppercase tracking-wider text-red-600 dark:text-red-400">
+                    {t("detail.soldBannerTitle")}
+                  </span>
+                  <span className="rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                    {t("card.sold")}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {t("detail.soldBannerSub")}
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/vente/maisons"
+              className="inline-flex shrink-0 items-center justify-center rounded-lg border border-red-600 bg-white/80 px-4 py-2 text-xs font-bold text-red-600 shadow-sm transition hover:bg-red-600 hover:text-white dark:bg-card"
+            >
+              {lang === "ar"
+                ? "تصفح الفيلات المتاحة"
+                : lang === "en"
+                  ? "Browse available houses"
+                  : "Voir nos autres maisons à vendre"}
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Rented announcement banner */}
+      {isRented && (
+        <div className="container mx-auto mb-6 px-4 md:px-6">
+          <div className="flex flex-col justify-between gap-4 rounded-2xl border-2 border-red-500/30 bg-red-50/80 p-4 shadow-sm backdrop-blur-sm dark:bg-red-950/30 sm:flex-row sm:items-center md:p-5">
+            <div className="flex items-center gap-3.5">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-red-600 text-base font-black text-white shadow-sm">
+                ✓
+              </span>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-black uppercase tracking-wider text-red-600 dark:text-red-400">
+                    {t("detail.rentedBannerTitle")}
+                  </span>
+                  <span className="rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                    {t("card.rented")}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {t("detail.rentedBannerSub")}
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/location/annuelle"
+              className="inline-flex shrink-0 items-center justify-center rounded-lg border border-red-600 bg-white/80 px-4 py-2 text-xs font-bold text-red-600 shadow-sm transition hover:bg-red-600 hover:text-white dark:bg-card"
+            >
+              {lang === "ar"
+                ? "تصفح الإيجارات المتاحة"
+                : lang === "en"
+                  ? "Browse available rentals"
+                  : "Voir nos autres locations annuelles"}
+            </Link>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-4 md:px-6">
-        <ImageGallery images={property.images} title={property.title} />
+        <ImageGallery
+          images={property.images}
+          title={property.title}
+          isSold={isSold}
+          isRented={isRented}
+        />
       </div>
 
       <div className="container mx-auto mt-10 grid gap-10 px-4 md:px-6 lg:grid-cols-3">

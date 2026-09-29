@@ -19,6 +19,10 @@ const getTodayDate = () => {
 
 export function AnnualRentalPanel({ property }: { property: Property }) {
   const { t, lang } = useI18n();
+  const isRented = property.isRented || property.status === "rented";
+  const isSold = property.isSold || property.status === "sold";
+  const isUnavailable = isRented || isSold;
+
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +33,68 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
     new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
 
   const priceLabel = property.pricePerMonth ? `${fmtPrice(property.pricePerMonth)} ${t("card.perMonth")}` : "—";
+
+  if (isUnavailable) {
+    return (
+      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+        <div className="border-b border-border pb-4">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            {isRented ? t("detail.rentedBadge") : t("detail.soldBadge")}
+          </div>
+          <h3 className="font-display text-lg font-bold text-primary">
+            {lang === "ar"
+              ? "هذا العقار تم كراؤه"
+              : lang === "en"
+                ? "This property is rented"
+                : "Ce bien a été loué"}
+          </h3>
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+            {lang === "ar"
+              ? "تم كراء هذه الفيلا بنجاح من طرف وكالتنا. الزيارات وطلبات الحجز مغلقة لهذا العقار."
+              : lang === "en"
+                ? "This villa has been rented. Viewing requests and booking inquiries are closed for this listing."
+                : "Cette villa a été louée à l'année. Les demandes de visite et réservations ne sont plus disponibles pour cette annonce."}
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {/* Disabled button explicitly marked Déjà Louée */}
+          <Button
+            disabled
+            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            size="lg"
+          >
+            {isRented ? t("detail.rentedBtn") : t("detail.soldBtn")}
+          </Button>
+
+          {/* Action to contact agency for similar rentals */}
+          <Button
+            type="button"
+            onClick={() => {
+              openWhatsApp({
+                kind: "info",
+                property: {
+                  title: property.title,
+                  ref: property.ref,
+                  url: propertyUrl(property.slug),
+                  priceLabel,
+                },
+                customer: {},
+                message: `Bonjour Immo Djerba, j'ai vu que la villa "${property.title}" (Réf: ${property.ref}) en location annuelle est déjà louée. Avez-vous une location similaire disponible ?`,
+                requestType: "Demande de location similaire",
+              });
+            }}
+            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            size="lg"
+          >
+            <MessageCircle className="me-2 h-5 w-5" />
+            {t("detail.rentedSimilarBtn")}
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,6 +213,7 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
 
 export function HouseSalePanel({ property }: { property: Property }) {
   const { t, lang } = useI18n();
+  const isSold = property.isSold || property.status === "sold";
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -157,6 +224,68 @@ export function HouseSalePanel({ property }: { property: Property }) {
     new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
 
   const priceLabel = property.salePrice ? fmtPrice(property.salePrice) : "—";
+
+  if (isSold) {
+    return (
+      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+        <div className="border-b border-border pb-4">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            {t("detail.soldBadge")}
+          </div>
+          <h3 className="font-display text-lg font-bold text-primary">
+            {lang === "ar"
+              ? "هذا العقار تم بيعه"
+              : lang === "en"
+                ? "This property is sold"
+                : "Ce bien a été vendu"}
+          </h3>
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+            {lang === "ar"
+              ? "تم بيع هذه الفيلا بنجاح من طرف وكالتنا. الزيارات وطلبات الحجز مغلقة لهذا العقار."
+              : lang === "en"
+                ? "This villa has been successfully sold by our agency. Viewing requests and booking inquiries are closed for this listing."
+                : "Cette villa a été vendue avec succès par notre agence. Les demandes de visite et rendez-vous ne sont plus disponibles pour cette annonce."}
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {/* Disabled button explicitly marked Déjà Vendu */}
+          <Button
+            disabled
+            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            size="lg"
+          >
+            {t("detail.soldBtn")}
+          </Button>
+
+          {/* Action to contact agency for similar properties */}
+          <Button
+            type="button"
+            onClick={() => {
+              openWhatsApp({
+                kind: "info",
+                property: {
+                  title: property.title,
+                  ref: property.ref,
+                  url: propertyUrl(property.slug),
+                  priceLabel,
+                },
+                customer: {},
+                message: `Bonjour Immo Djerba, j'ai vu que la villa "${property.title}" (Réf: ${property.ref}) a été vendue. Avez-vous un bien similaire disponible à la vente ?`,
+                requestType: "Demande de bien similaire",
+              });
+            }}
+            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            size="lg"
+          >
+            <MessageCircle className="me-2 h-5 w-5" />
+            {t("detail.soldSimilarBtn")}
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -274,6 +403,7 @@ export function HouseSalePanel({ property }: { property: Property }) {
 
 export function LandSalePanel({ property }: { property: Property }) {
   const { t, lang } = useI18n();
+  const isSold = property.isSold || property.status === "sold";
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -284,6 +414,66 @@ export function LandSalePanel({ property }: { property: Property }) {
     new Intl.NumberFormat(lang === "ar" ? "ar-TN" : lang === "en" ? "en-US" : "fr-FR").format(n) + " TND";
 
   const priceLabel = property.salePrice ? fmtPrice(property.salePrice) : "—";
+
+  if (isSold) {
+    return (
+      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+        <div className="border-b border-border pb-4">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            {t("detail.soldBadge")}
+          </div>
+          <h3 className="font-display text-lg font-bold text-primary">
+            {lang === "ar"
+              ? "هذا العقار تم بيعه"
+              : lang === "en"
+                ? "This property is sold"
+                : "Ce bien a été vendu"}
+          </h3>
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+            {lang === "ar"
+              ? "تم بيع هذا العقار بنجاح من طرف وكالتنا. الزيارات وطلبات الشراء غير متاحة."
+              : lang === "en"
+                ? "This property has been successfully sold by our agency. Inquiries are closed."
+                : "Ce terrain a été vendu avec succès par notre agence. Les demandes de visite ne sont plus disponibles."}
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          <Button
+            disabled
+            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            size="lg"
+          >
+            {t("detail.soldBtn")}
+          </Button>
+
+          <Button
+            type="button"
+            onClick={() => {
+              openWhatsApp({
+                kind: "info",
+                property: {
+                  title: property.title,
+                  ref: property.ref,
+                  url: propertyUrl(property.slug),
+                  priceLabel,
+                },
+                customer: {},
+                message: `Bonjour Immo Djerba, j'ai vu que le bien "${property.title}" (Réf: ${property.ref}) a été vendu. Avez-vous un bien similaire disponible ?`,
+                requestType: "Demande de bien similaire",
+              });
+            }}
+            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            size="lg"
+          >
+            <MessageCircle className="me-2 h-5 w-5" />
+            {t("detail.soldSimilarBtn")}
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();

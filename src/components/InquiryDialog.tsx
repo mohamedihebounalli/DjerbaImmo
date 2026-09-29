@@ -73,13 +73,30 @@ export function InquiryDialog({
     setOpen(false);
   };
 
+  const isSold = property.isSold || property.status === "sold";
+  const isRented = property.isRented || property.status === "rented";
+  const isUnavailable = isSold || isRented;
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger ?? (
-          <Button className="bg-gold text-gold-foreground hover:bg-gold/90">
-            <MessageCircle className="me-2 h-4 w-4" />
-            {kind === "visit" ? t("detail.visitCta") : t("detail.infoCta")}
+          <Button
+            disabled={isUnavailable}
+            className={
+              isUnavailable
+                ? "bg-muted text-muted-foreground cursor-not-allowed font-bold"
+                : "bg-gold text-gold-foreground hover:bg-gold/90"
+            }
+          >
+            {!isUnavailable && <MessageCircle className="me-2 h-4 w-4" />}
+            {isUnavailable
+              ? isRented
+                ? t("detail.rentedBtn")
+                : t("detail.soldBtn")
+              : kind === "visit"
+                ? t("detail.visitCta")
+                : t("detail.infoCta")}
           </Button>
         )}
       </DialogTrigger>
