@@ -106,18 +106,18 @@ export function PropertyCard({ property }: { property: Property }) {
         </div>
       </div>
 
-      <div className="space-y-3 p-4">
+      <div className="space-y-3 p-4 w-full max-w-full overflow-hidden">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-bold leading-tight text-primary">
+          <h3 className="font-display text-lg font-bold leading-tight text-primary break-words min-w-0">
             {property.title}
           </h3>
           <span className="shrink-0 text-[11px] font-mono font-semibold text-muted-foreground">
             {t("card.ref")} {property.ref}
           </span>
         </div>
-        <p className="flex items-center gap-1 text-sm text-muted-foreground">
-          <MapPin className="h-3.5 w-3.5 text-gold" />
-          {property.zone} · {t(`type.${property.type}`)}
+        <p className="flex items-center gap-1 text-sm text-muted-foreground break-words min-w-0">
+          <MapPin className="h-3.5 w-3.5 text-gold shrink-0" />
+          <span className="truncate">{property.zone} · {t(`type.${property.type}`)}</span>
         </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
           {property.rooms != null && property.rooms > 0 && (

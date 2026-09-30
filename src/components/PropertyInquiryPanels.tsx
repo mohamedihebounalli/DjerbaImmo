@@ -36,20 +36,20 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
 
   if (isUnavailable) {
     return (
-      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+      <div className="w-full max-w-full box-border rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6 overflow-hidden">
         <div className="border-b border-border pb-4">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
             {isRented ? t("detail.rentedBadge") : t("detail.soldBadge")}
           </div>
-          <h3 className="font-display text-lg font-bold text-primary">
+          <h3 className="font-display text-lg font-bold text-primary break-words">
             {lang === "ar"
               ? "هذا العقار تم كراؤه"
               : lang === "en"
                 ? "This property is rented"
                 : "Ce bien a été loué"}
           </h3>
-          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed break-words">
             {lang === "ar"
               ? "تم كراء هذه الفيلا بنجاح من طرف وكالتنا. الزيارات وطلبات الحجز مغلقة لهذا العقار."
               : lang === "en"
@@ -58,11 +58,11 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 w-full max-w-full box-border">
           {/* Disabled button explicitly marked Déjà Louée */}
           <Button
             disabled
-            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            className="w-full max-w-full box-border bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80 text-sm sm:text-base whitespace-normal text-center p-3"
             size="lg"
           >
             {isRented ? t("detail.rentedBtn") : t("detail.soldBtn")}
@@ -85,11 +85,11 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
                 requestType: "Demande de location similaire",
               });
             }}
-            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
             size="lg"
           >
-            <MessageCircle className="me-2 h-5 w-5" />
-            {t("detail.rentedSimilarBtn")}
+            <MessageCircle className="h-5 w-5 shrink-0" />
+            <span>{t("detail.rentedSimilarBtn")}</span>
           </Button>
         </div>
       </div>
@@ -201,11 +201,11 @@ export function AnnualRentalPanel({ property }: { property: Property }) {
 
       <Button
         type="submit"
-        className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+        className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
         size="lg"
       >
-        <MessageCircle className="me-2 h-5 w-5" />
-        Demander une visite via WhatsApp
+        <MessageCircle className="h-5 w-5 shrink-0" />
+        <span>Demander une visite via WhatsApp</span>
       </Button>
     </form>
   );
@@ -227,20 +227,20 @@ export function HouseSalePanel({ property }: { property: Property }) {
 
   if (isSold) {
     return (
-      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+      <div className="w-full max-w-full box-border rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6 overflow-hidden">
         <div className="border-b border-border pb-4">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
             {t("detail.soldBadge")}
           </div>
-          <h3 className="font-display text-lg font-bold text-primary">
+          <h3 className="font-display text-lg font-bold text-primary break-words">
             {lang === "ar"
               ? "هذا العقار تم بيعه"
               : lang === "en"
                 ? "This property is sold"
                 : "Ce bien a été vendu"}
           </h3>
-          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed break-words">
             {lang === "ar"
               ? "تم بيع هذه الفيلا بنجاح من طرف وكالتنا. الزيارات وطلبات الحجز مغلقة لهذا العقار."
               : lang === "en"
@@ -249,11 +249,11 @@ export function HouseSalePanel({ property }: { property: Property }) {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 w-full max-w-full box-border">
           {/* Disabled button explicitly marked Déjà Vendu */}
           <Button
             disabled
-            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            className="w-full max-w-full box-border bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80 text-sm sm:text-base whitespace-normal text-center p-3"
             size="lg"
           >
             {t("detail.soldBtn")}
@@ -276,11 +276,11 @@ export function HouseSalePanel({ property }: { property: Property }) {
                 requestType: "Demande de bien similaire",
               });
             }}
-            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
             size="lg"
           >
-            <MessageCircle className="me-2 h-5 w-5" />
-            {t("detail.soldSimilarBtn")}
+            <MessageCircle className="h-5 w-5 shrink-0" />
+            <span>{t("detail.soldSimilarBtn")}</span>
           </Button>
         </div>
       </div>
@@ -391,11 +391,11 @@ export function HouseSalePanel({ property }: { property: Property }) {
 
       <Button
         type="submit"
-        className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+        className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
         size="lg"
       >
-        <MessageCircle className="me-2 h-5 w-5" />
-        Prendre Rendez-vous via WhatsApp
+        <MessageCircle className="h-5 w-5 shrink-0" />
+        <span>Prendre Rendez-vous via WhatsApp</span>
       </Button>
     </form>
   );
@@ -417,20 +417,20 @@ export function LandSalePanel({ property }: { property: Property }) {
 
   if (isSold) {
     return (
-      <div className="rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6">
+      <div className="w-full max-w-full box-border rounded-2xl border-2 border-red-500/25 bg-card p-6 shadow-elegant space-y-6 overflow-hidden">
         <div className="border-b border-border pb-4">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-black text-white uppercase tracking-wider mb-3 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
             {t("detail.soldBadge")}
           </div>
-          <h3 className="font-display text-lg font-bold text-primary">
+          <h3 className="font-display text-lg font-bold text-primary break-words">
             {lang === "ar"
               ? "هذا العقار تم بيعه"
               : lang === "en"
                 ? "This property is sold"
                 : "Ce bien a été vendu"}
           </h3>
-          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+          <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed break-words">
             {lang === "ar"
               ? "تم بيع هذا العقار بنجاح من طرف وكالتنا. الزيارات وطلبات الشراء غير متاحة."
               : lang === "en"
@@ -439,10 +439,10 @@ export function LandSalePanel({ property }: { property: Property }) {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 w-full max-w-full box-border">
           <Button
             disabled
-            className="w-full bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80"
+            className="w-full max-w-full box-border bg-muted text-muted-foreground font-bold h-12 cursor-not-allowed opacity-80 text-sm sm:text-base whitespace-normal text-center p-3"
             size="lg"
           >
             {t("detail.soldBtn")}
@@ -464,11 +464,11 @@ export function LandSalePanel({ property }: { property: Property }) {
                 requestType: "Demande de bien similaire",
               });
             }}
-            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+            className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
             size="lg"
           >
-            <MessageCircle className="me-2 h-5 w-5" />
-            {t("detail.soldSimilarBtn")}
+            <MessageCircle className="h-5 w-5 shrink-0" />
+            <span>{t("detail.soldSimilarBtn")}</span>
           </Button>
         </div>
       </div>
@@ -580,11 +580,11 @@ export function LandSalePanel({ property }: { property: Property }) {
 
       <Button
         type="submit"
-        className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-12 shadow-card"
+        className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border shadow-card flex items-center justify-center gap-2"
         size="lg"
       >
-        <MessageCircle className="me-2 h-5 w-5" />
-        Demander un Rendez-vous via WhatsApp
+        <MessageCircle className="h-5 w-5 shrink-0" />
+        <span>Demander un Rendez-vous via WhatsApp</span>
       </Button>
     </form>
   );

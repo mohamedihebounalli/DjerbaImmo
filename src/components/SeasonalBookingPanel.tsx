@@ -195,11 +195,11 @@ export function SeasonalBookingPanel({ property }: { property: Property }) {
 
       <Button
         type="submit"
-        className="mt-5 w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold"
+        className="mt-5 w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border flex items-center justify-center gap-2"
         size="lg"
       >
-        <MessageCircle className="me-2 h-4 w-4" />
-        {t("detail.bookCta")}
+        <MessageCircle className="h-4 w-4 shrink-0" />
+        <span>{t("detail.bookCta")}</span>
       </Button>
       <p className="mt-2 text-center text-[11px] text-muted-foreground">
         {t("inquiry.note")}

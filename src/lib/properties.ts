@@ -1688,7 +1688,6 @@ export const PROPERTIES: Property[] = [
     images: [
       "/assets/SalesVilla/Villa13AV/Villa13AV1.webp",
       "/assets/SalesVilla/Villa13AV/Villa13AV2.webp",
-      "/assets/SalesVilla/Villa13AV/Villa13AV3.webp",
       "/assets/SalesVilla/Villa13AV/Villa13AV4.webp",
       "/assets/SalesVilla/Villa13AV/Villa13AV5.webp",
       "/assets/SalesVilla/Villa13AV/Villa13AV6.webp",

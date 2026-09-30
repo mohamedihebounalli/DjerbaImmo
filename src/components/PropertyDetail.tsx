@@ -112,12 +112,12 @@ export function PropertyDetail({ property }: { property: Property }) {
               </span>
             )}
           </div>
-          <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl">
+          <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl break-words">
             {property.title}
           </h1>
-          <p className="mt-2 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+          <p className="mt-2 flex flex-wrap items-center gap-3 text-sm text-muted-foreground break-words">
             <span className="inline-flex items-center gap-1">
-              <MapPin className="h-3.5 w-3.5 text-gold" />
+              <MapPin className="h-3.5 w-3.5 text-gold shrink-0" />
               {property.zone}, Djerba
             </span>
             <span className="font-mono text-xs">
@@ -127,7 +127,7 @@ export function PropertyDetail({ property }: { property: Property }) {
         </div>
         <div className="text-end">
           <div
-            className={`font-display text-3xl font-bold md:text-4xl ${
+            className={`font-display text-3xl font-bold md:text-4xl break-words ${
               isUnavailable ? "text-muted-foreground line-through text-2xl md:text-3xl" : "text-gold"
             }`}
           >
@@ -259,23 +259,23 @@ export function PropertyDetail({ property }: { property: Property }) {
           </div>
 
           {/* Description */}
-          <section>
-            <h2 className="font-display text-2xl font-bold text-primary">
+          <section className="max-w-full overflow-hidden">
+            <h2 className="font-display text-2xl font-bold text-primary break-words">
               {t("detail.description")}
             </h2>
-            <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-muted-foreground break-words">
               {property.description}
             </p>
           </section>
 
           {/* Features */}
-          <section>
-            <h2 className="font-display text-2xl font-bold text-primary">{t("detail.features")}</h2>
+          <section className="max-w-full overflow-hidden">
+            <h2 className="font-display text-2xl font-bold text-primary break-words">{t("detail.features")}</h2>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {property.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-gold" />
-                  {f}
+                <li key={f} className="flex items-start gap-2 text-sm text-foreground break-words">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-gold shrink-0" />
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
@@ -303,14 +303,13 @@ export function PropertyDetail({ property }: { property: Property }) {
           {/* Location map */}
           <section>
             <h2 className="font-display text-2xl font-bold text-primary">{t("detail.location")}</h2>
-            <div className="mt-4 overflow-hidden rounded-2xl border border-border shadow-card">
+            <div className="mt-4 w-full max-w-full aspect-video overflow-hidden rounded-2xl border border-border shadow-card box-border">
               <iframe
                 title={`Carte ${property.zone}`}
                 src={`https://www.google.com/maps?q=${encodeURIComponent(property.zone + ", Djerba, Tunisie")}&output=embed`}
-                width="100%"
-                height="360"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                className="w-full max-w-full h-full aspect-video border-0"
                 style={{ border: 0 }}
               />
             </div>

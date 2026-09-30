@@ -142,9 +142,12 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
   }
   html {
     scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-background);
@@ -152,10 +155,20 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6, p, span, li, a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+  }
+  img, iframe, svg, video {
+    max-width: 100%;
   }
   [dir="rtl"] body {
     font-family: "Cairo", "Inter", system-ui, sans-serif;

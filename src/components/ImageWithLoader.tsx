@@ -47,7 +47,7 @@ export function ImageWithLoader({
   return (
     <div
       className={cn(
-        "relative w-full h-full overflow-hidden",
+        "relative w-full max-w-full h-full overflow-hidden",
         wrapperClassName,
       )}
     >
@@ -80,7 +80,7 @@ export function ImageWithLoader({
         {...imgProps}
         onLoad={handleLoad}
         className={cn(
-          "transition-opacity duration-700 ease-out",
+          "max-w-full transition-opacity duration-700 ease-out",
           isLoaded ? "opacity-100" : "opacity-0",
           className,
         )}

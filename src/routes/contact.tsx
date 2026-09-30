@@ -120,10 +120,10 @@ function ContactPage() {
           <Button
             type="submit"
             size="lg"
-            className="w-full bg-[#25D366] text-white hover:bg-[#1ebe57]"
+            className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border flex items-center justify-center gap-2"
           >
-            <MessageCircle className="me-2 h-4 w-4" />
-            {t("contact.send")}
+            <MessageCircle className="h-4 w-4 shrink-0" />
+            <span>{t("contact.send")}</span>
           </Button>
           <p className="text-center text-xs text-muted-foreground">
             {t("inquiry.note")}
@@ -162,14 +162,13 @@ function ContactPage() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-border shadow-card">
+          <div className="w-full max-w-full aspect-video overflow-hidden rounded-2xl border border-border shadow-card box-border">
             <iframe
               title="Carte Djerba"
               src="https://www.google.com/maps?q=Djerba,+Tunisie&output=embed"
-              width="100%"
-              height="260"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              className="w-full max-w-full h-full aspect-video border-0"
               style={{ border: 0 }}
             />
           </div>

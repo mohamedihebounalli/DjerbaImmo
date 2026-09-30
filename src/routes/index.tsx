@@ -55,7 +55,7 @@ function HomePage() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="container mx-auto px-4 py-16 md:px-6 md:py-24">
+      <section className="container mx-auto w-full max-w-full px-4 py-16 md:px-6 md:py-24 box-border overflow-hidden">
         <SectionHeader title={t("home.categories.title")} />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <Category
@@ -82,8 +82,8 @@ function HomePage() {
       </section>
 
       {/* RESULTS / FEATURED */}
-      <section id="results" className="bg-secondary/40 py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
+      <section id="results" className="w-full max-w-full bg-secondary/40 py-16 md:py-24 box-border overflow-hidden">
+        <div className="container mx-auto w-full max-w-full px-4 md:px-6 box-border">
           <SectionHeader title={t("home.featured")} subtitle={t("home.featured.sub")} />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {(applyFilters(PROPERTIES, filters).length > 0 ? applyFilters(PROPERTIES, filters) : featured)
@@ -103,7 +103,7 @@ function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section className="container mx-auto grid items-center gap-10 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28">
+      <section className="container mx-auto w-full max-w-full grid items-center gap-10 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28 box-border overflow-hidden">
         <div className="relative">
           <div className="aspect-[4/5] overflow-hidden rounded-3xl shadow-elegant">
             <img 

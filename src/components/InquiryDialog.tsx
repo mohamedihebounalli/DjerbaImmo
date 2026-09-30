@@ -145,10 +145,10 @@ export function InquiryDialog({
           <Button
             onClick={submit}
             disabled={!name || !phone}
-            className="bg-[#25D366] text-white hover:bg-[#1ebe57]"
+            className="w-full max-w-full bg-[#25D366] text-white hover:bg-[#1ebe57] font-bold h-auto min-h-12 text-sm sm:text-base whitespace-normal text-center p-3 box-border flex items-center justify-center gap-2"
           >
-            <MessageCircle className="me-2 h-4 w-4" />
-            {t("inquiry.send")}
+            <MessageCircle className="h-4 w-4 shrink-0" />
+            <span>{t("inquiry.send")}</span>
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -96,9 +96,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col w-screen max-w-full overflow-x-hidden box-border">
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 w-full max-w-full overflow-x-hidden box-border">
             <Outlet />
           </main>
           <Footer />

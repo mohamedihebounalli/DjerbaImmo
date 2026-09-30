@@ -31,14 +31,14 @@ export function ImageGallery({
   };
 
   return (
-    <div className="w-full w-full mx-auto p-0">
+    <div className="w-full max-w-full mx-auto p-0 overflow-hidden">
       {/* Strict 5-column layout without extra side space */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 max-w-full">
         
         {/* Main Featured Image - Spans 3 columns and exactly 3 rows */}
         <div
           onClick={() => setLightboxOpen(true)}
-          className="group relative aspect-[16/10] col-span-2 sm:col-span-3 md:col-span-3 md:row-span-3 w-full cursor-zoom-in overflow-hidden rounded-2xl bg-muted shadow-md"
+          className="group relative aspect-[16/10] col-span-2 sm:col-span-3 md:col-span-3 md:row-span-3 w-full max-w-full cursor-zoom-in overflow-hidden rounded-2xl bg-muted shadow-md"
         >
           <ImageWithLoader
             src={images[active]}
